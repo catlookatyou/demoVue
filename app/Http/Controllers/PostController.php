@@ -13,10 +13,9 @@ class PostController extends Controller
     public function index(){
         return new PostCollection(
             Post::with(['author:id,name,email', 'category'])
-                ->select(['id', 'title', 'image', 'category_id', 'user_id', 'created_at'])
+                ->select(['id', 'title', 'content', 'image', 'category_id', 'user_id', 'created_at'])
                 ->orderByDesc('id')->get()
         );
-        
     }
 
     public function category($name){

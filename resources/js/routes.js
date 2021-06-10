@@ -12,8 +12,8 @@ export default {
         },
         {
             path: '/:name',
-            name: 'post',
-            component: require('./components/Post').default
+            name: 'category',
+            component: require('./components/Category').default
         }
     ]
 }

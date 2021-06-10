@@ -13,7 +13,7 @@
             <div class="container px-8">
                 <main class="flex">
                     <!-- 侧边栏（导航菜单） -->
-                    <aside class="w-1/3 pt-8">
+                    <aside class="h-screen sticky top-0 w-1/3 pt-8">
                         <section class="mb-10">
                             <ul class="list-reset">
                                 <h1 class="mb-4">
@@ -23,10 +23,13 @@
                                     <router-link to="/">Home</router-link>
                                 </li>
                                 <li class="leading-loose">
-                                    <router-link :to="{ name: 'post', params: { name: 'cat1' }}">cat1</router-link>
+                                    <router-link :to="{ name: 'category', params: { name: '作品1號' }}">作品1號</router-link>
                                 </li>
                                 <li class="leading-loose">
-                                    <router-link :to="{ name: 'post', params: { name: 'cat2' }}">cat2</router-link>
+                                    <router-link :to="{ name: 'category', params: { name: '作品2號' }}">作品2號</router-link>
+                                </li>
+                                <li class="leading-loose">
+                                    <router-link :to="{ name: 'category', params: { name: '作品3號' }}">作品3號</router-link>
                                 </li>
                                 <li class="leading-loose">
                                     <router-link to="/about">About</router-link>
