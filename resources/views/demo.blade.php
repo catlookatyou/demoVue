@@ -17,7 +17,7 @@
                         <section class="mb-10">
                             <ul class="list-reset">
                                 <h1 class="mb-4">
-                                    catlookatyou
+                                    貓
                                 </h1>
                                 <li class="leading-loose">
                                     <router-link to="/">Home</router-link>
@@ -39,7 +39,7 @@
                     </aside>
 
                     <!-- 主体内容 -->
-                    <div class="primary pt-20">
+                    <div class="w-2/3 lg:w-full primary pt-20">
                         <!-- 路由匹配到的组件将渲染在这里 -->
                         <router-view></router-view>
                     </div>

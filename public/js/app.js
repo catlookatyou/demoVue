@@ -1890,8 +1890,6 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    console.log(this.loaded);
-
     if (!this.loaded) {
       this.updateCategoryName();
     }
@@ -1903,7 +1901,6 @@ __webpack_require__.r(__webpack_exports__);
     updateCategoryName: function updateCategoryName() {
       this.name = this.$route.params.name.toUpperCase();
       this.loaded = false;
-      console.log(this.loaded);
       this.getCategoryPosts();
     },
     getCategoryPosts: function getCategoryPosts() {
@@ -1934,6 +1931,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _common_List__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/List */ "./resources/js/components/common/List.vue");
 /* harmony import */ var _common_Loading__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/Loading */ "./resources/js/components/common/Loading.vue");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 //
 //
 //
@@ -1949,12 +1958,11 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       posts: [],
+      links: {},
       loaded: false
     };
   },
   mounted: function mounted() {
-    console.log(this.loaded);
-
     if (!this.loaded) {
       this.getAllPosts();
     }
@@ -1965,7 +1973,22 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/posts').then(function (resp) {
         _this.posts = resp.data.data;
+        _this.links = resp.data.links;
         _this.loaded = true;
+      })["catch"](function (err) {
+        console.log(err);
+      });
+    },
+    getMorePosts: function getMorePosts(nextPageUrl) {
+      var _this2 = this;
+
+      axios.get(nextPageUrl).then(function (resp) {
+        var _this2$posts;
+
+        (_this2$posts = _this2.posts).push.apply(_this2$posts, _toConsumableArray(resp.data.data));
+
+        _this2.links = resp.data.links;
+        _this2.loaded = true;
       })["catch"](function (err) {
         console.log(err);
       });
@@ -1993,12 +2016,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     ListItem: _ListItem__WEBPACK_IMPORTED_MODULE_0__.default
   },
-  props: ['posts']
+  //links, loadMorePosts()用來處理分頁
+  props: ['posts', 'links'],
+  methods: {
+    loadMorePosts: function loadMorePosts() {
+      this.$emit('loadMorePosts', this.links.next);
+    }
+  }
 });
 
 /***/ }),
@@ -38072,7 +38111,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _vm.loaded
-    ? _c("post-list", { attrs: { posts: _vm.posts } })
+    ? _c("post-list", {
+        attrs: { posts: _vm.posts, links: _vm.links },
+        on: { loadMorePosts: _vm.getMorePosts }
+      })
     : _c("loading")
 }
 var staticRenderFns = []
@@ -38100,10 +38142,29 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    _vm._l(_vm.posts, function(post) {
-      return _c("list-item", { key: post.id, attrs: { post: post } })
-    }),
-    1
+    [
+      _vm._l(_vm.posts, function(post) {
+        return _c("list-item", { key: post.id, attrs: { post: post } })
+      }),
+      _vm._v(" "),
+      _vm.links
+        ? _c("div", { staticClass: "w-full text-center mx-auto" }, [
+            _vm.links.next
+              ? _c(
+                  "button",
+                  {
+                    staticClass:
+                      "border border-black-500 bg-black-500 text-black rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-gray focus:outline-none focus:shadow-outline",
+                    attrs: { type: "button" },
+                    on: { click: _vm.loadMorePosts }
+                  },
+                  [_vm._v("\n            more\n        ")]
+                )
+              : _vm._e()
+          ])
+        : _vm._e()
+    ],
+    2
   )
 }
 var staticRenderFns = []

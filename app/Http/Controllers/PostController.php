@@ -14,7 +14,7 @@ class PostController extends Controller
         return new PostCollection(
             Post::with(['author:id,name,email', 'category'])
                 ->select(['id', 'title', 'content', 'image', 'category_id', 'user_id', 'created_at'])
-                ->orderByDesc('id')->get()
+                ->orderByDesc('id')->paginate(10)
         );
     }
 
