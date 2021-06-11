@@ -2111,6 +2111,23 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (err) {
         console.log(err);
       });
+    },
+    updatePost: function updatePost() {
+      var formData = new FormData();
+      formData.append('title', this.title);
+      formData.append('category_id', this.category_id);
+      formData.append('image', this.$refs.image.files[0]);
+      formData.append('content', this.content);
+      formData.append('_method', 'PUT');
+      axios.post('/api/posts/63', formData).then(function (resp) {
+        if (resp.data.success === true) {
+          console.log('update success!');
+        } else {
+          console.log('update failed!');
+        }
+      })["catch"](function (err) {
+        console.log('err = '.err);
+      });
     }
   }
 });
@@ -38497,7 +38514,7 @@ var render = function() {
             staticClass:
               "border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline",
             attrs: { type: "button" },
-            on: { click: _vm.publishNewPost }
+            on: { click: _vm.updatePost }
           },
           [_vm._v("\n            發布\n        ")]
         )

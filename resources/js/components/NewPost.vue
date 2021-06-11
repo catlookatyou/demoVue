@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="flex items-center">
-            <button @click="publishNewPost" type="button" class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
+            <button @click="updatePost" type="button" class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
                 發布
             </button>
         </div>
@@ -70,7 +70,7 @@ export default {
                 console.log(err);
             })
         },
-        publishNewPost() {
+        publishNewPost(){
             let formData = new FormData();
             formData.append('title', this.title);
             formData.append('category_id', this.category_id);
@@ -96,6 +96,24 @@ export default {
                 }
             }).catch((err) => {
                 console.log(err);
+            })
+        },
+        updatePost(){
+            let formData = new FormData();
+            formData.append('title', this.title);
+            formData.append('category_id', this.category_id);
+            formData.append('image', this.$refs.image.files[0]);
+            formData.append('content', this.content);
+            formData.append('_method', 'PUT')
+         
+            axios.post('/api/posts/63', formData).then((resp) => {
+                if (resp.data.success === true) {
+                    console.log('update success!');
+                } else {
+                    console.log('update failed!');
+                }
+            }).catch((err) => {
+                console.log('err = '.err);
             })
         }
     }
