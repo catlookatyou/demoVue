@@ -34,6 +34,9 @@
                                 <li class="leading-loose">
                                     <router-link to="/about">About</router-link>
                                 </li>
+                                <li class="leading-loose">
+                                    <router-link to="/new">發布</router-link>
+                                </li>
                             </ul>
                         </section>
                     </aside>

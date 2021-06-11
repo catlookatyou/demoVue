@@ -11,6 +11,10 @@ export default {
             component: require('./components/About').default
         },
         {
+            path: '/new',
+            component: require('./components/NewPost').default
+        },
+        {
             path: '/:name',
             name: 'category',
             component: require('./components/Category').default

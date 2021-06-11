@@ -22,5 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //Post
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/category/{name}', [PostController::class, 'category']);
+
+Route::post('/posts/store', [PostController::class, 'store']);
+Route::get('/posts/categories', [PostController::class, 'categories']);
+
 //隱式路由
 Route::get('/posts/{post}', [PostController::class, 'show']);
