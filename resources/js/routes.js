@@ -15,6 +15,11 @@ export default {
             component: require('./components/NewPost').default
         },
         {
+            path: '/edit/:id',
+            name: 'edit',
+            component: require('./components/EditPost').default
+        },
+        {
             path: '/:name',
             name: 'category',
             component: require('./components/Category').default

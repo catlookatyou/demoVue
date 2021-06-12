@@ -85,10 +85,17 @@ class PostController extends Controller
         ]);
 
         $post = Post::findOrFail($id);
-        $post->fill($data);
-      
+
         //delete original image
-        //Storage::delete($post->image);
+        if($request->hasFile('image')){
+            //cut '/storage/' and add full url
+            $url = substr($post->image, 9);
+            $url = 'app/public/'.$url;
+            //delete
+            unlink(storage_path($url));
+        }
+
+        $post->fill($data);
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
@@ -106,9 +113,19 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         //delete image
-        //if($post->image)
-        //    Storage::delete($post->image);
-
+        if($post->image){
+            //check if file exist
+            $url = substr($post->image, 9);
+            $exists = Storage::disk('public')->has($url);
+            if($exists){
+                //cut '/storage/' and add full url
+                $url = substr($post->image, 9);
+                $url = 'app/public/'.$url;
+                //delete
+                unlink(storage_path($url));
+            }
+        }
+        
         if ($post->delete()){
             return ['success' => true, 'message' => 'delete success!'];
         }

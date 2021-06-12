@@ -19,6 +19,9 @@
                 <div>
                     <!--<p class="font-semibold text-gray-700 text-sm capitalize"> {{ post.author.name }} </p>-->
                     <p class="text-gray-600 text-xs"> {{ post.created_at }} </p>
+                    <router-link :to="{ name: 'edit', params: { id: post.id }}">
+                       <p class="text-blue-500 text-xs">編輯</p>
+                    </router-link>
                 </div>
             </div>
         </div>
