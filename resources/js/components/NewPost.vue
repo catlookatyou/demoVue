@@ -1,11 +1,11 @@
 <template>
-    <div class="bg-white shadow-md rounded mt-2 px-8 pt-6 pb-8 mb-6 flex flex-col">
+    <div v-if="loaded" class="bg-white shadow-md rounded mt-2 px-8 pt-6 pb-8 mb-6 flex flex-col">
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                     Title
                 </label>
-                <input required v-model="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" type="text" placeholder="在这里输入文章标题">
+                <input required v-model="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" type="text" placeholder="title">
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -31,7 +31,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                     Content
                 </label>
-                <textarea required v-model="content" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48" placeholder="在这里输入正文内容..."></textarea>
+                <textarea required v-model="content" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48" placeholder="content..."></textarea>
             </div>
         </div>
         <div class="flex items-center">
@@ -40,14 +40,17 @@
             </button>
         </div>
     </div>
+    <loading v-else></loading>
 </template>
 
 <script>
 //import FlashMessage from "./common/FlashMessage";
+import Loading from "./common/Loading";
 export default {
-    //components: {FlashMessage},
+    components: {Loading},
     data() {
         return {
+            loaded: false,
             categories:[],
             title: '',
             category_id: '',
@@ -66,11 +69,13 @@ export default {
         loadPostsCategories(){
             axios.get('/api/posts/categories').then((resp) => {
                 this.categories = resp.data.data;
+                this.loaded = true;
             }).catch((err) => {
                 console.log(err);
             })
         },
         publishNewPost(){
+            this.loaded = false;
             let formData = new FormData();
             formData.append('title', this.title);
             formData.append('category_id', this.category_id);
@@ -90,7 +95,10 @@ export default {
                     'Content-Type': 'multipart/form-data'
             }}).then((resp) => {
                 if (resp.data.success === true) {
+                    //this.loaded = true;
                     console.log('post success!');
+                    //console.log(this.categories[this.category_id-1].name);
+                    window.location.href = '/' + this.categories[this.category_id-1].name;
                 } else {
                     console.log('post failed!');
                 }

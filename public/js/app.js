@@ -2003,11 +2003,15 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.postId = this.$route.params.id;
     this.loadPostsCategories();
-  },
-  mounted: function mounted() {
+
     if (!this.loaded) {
       this.getPostData(this.postId);
     }
+  },
+  mounted: function mounted() {
+    /*if (!this.loaded) {
+        this.getPostData(this.postId);
+    }*/
   },
   computed: {
     categories: function categories() {
@@ -2020,6 +2024,9 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/posts/' + id).then(function (resp) {
         _this.post = resp.data.data;
+        _this.title = _this.post.title;
+        _this.category_id = _this.post.category_id;
+        _this.content = _this.post.content;
         _this.loaded = true;
       }).then(function (err) {
         console.log(err);
@@ -2035,6 +2042,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     updatePost: function updatePost() {
+      var _this3 = this;
+
+      this.loaded = false;
       var formData = new FormData();
       formData.append('title', this.title);
       formData.append('category_id', this.category_id);
@@ -2043,7 +2053,9 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('_method', 'PUT');
       axios.post('/api/posts/' + this.postId, formData).then(function (resp) {
         if (resp.data.success === true) {
+          _this3.loaded = true;
           console.log('update success!');
+          window.history.back();
         } else {
           console.log('update failed!');
         }
@@ -2052,9 +2064,14 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     deletePost: function deletePost() {
+      var _this4 = this;
+
+      this.loaded = false;
       axios["delete"]('/api/posts/' + this.postId).then(function (resp) {
         if (resp.data.success === true) {
+          _this4.loaded = true;
           console.log('delete success!');
+          window.history.back();
         } else {
           console.log('delete failed!');
         }
@@ -2158,6 +2175,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var _common_Loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/Loading */ "./resources/js/components/common/Loading.vue");
+//
 //
 //
 //
@@ -2203,10 +2222,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //import FlashMessage from "./common/FlashMessage";
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  //components: {FlashMessage},
+  components: {
+    Loading: _common_Loading__WEBPACK_IMPORTED_MODULE_0__.default
+  },
   data: function data() {
     return {
+      loaded: false,
       categories: [],
       title: '',
       category_id: '',
@@ -2227,11 +2250,15 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/posts/categories').then(function (resp) {
         _this.categories = resp.data.data;
+        _this.loaded = true;
       })["catch"](function (err) {
         console.log(err);
       });
     },
     publishNewPost: function publishNewPost() {
+      var _this2 = this;
+
+      this.loaded = false;
       var formData = new FormData();
       formData.append('title', this.title);
       formData.append('category_id', this.category_id);
@@ -2253,7 +2280,10 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (resp) {
         if (resp.data.success === true) {
+          //this.loaded = true;
           console.log('post success!');
+          console.log(_this2.categories[_this2.category_id - 1].name);
+          window.location.href = '/' + _this2.categories[_this2.category_id - 1].name;
         } else {
           console.log('post failed!');
         }
@@ -38774,176 +38804,174 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    {
-      staticClass:
-        "bg-white shadow-md rounded mt-2 px-8 pt-6 pb-8 mb-6 flex flex-col"
-    },
-    [
-      _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-        _c("div", { staticClass: "w-full px-3" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            },
-            [_vm._v("\n                Title\n            ")]
-          ),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.title,
-                expression: "title"
-              }
-            ],
-            staticClass:
-              "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-            attrs: {
-              required: "",
-              type: "text",
-              placeholder: "在这里输入文章标题"
-            },
-            domProps: { value: _vm.title },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.title = $event.target.value
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-        _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            },
-            [_vm._v("\n                Category\n            ")]
-          ),
-          _vm._v(" "),
-          _c(
-            "select",
-            {
-              directives: [
+  return _vm.loaded
+    ? _c(
+        "div",
+        {
+          staticClass:
+            "bg-white shadow-md rounded mt-2 px-8 pt-6 pb-8 mb-6 flex flex-col"
+        },
+        [
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c("div", { staticClass: "w-full px-3" }, [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.category_id,
-                  expression: "category_id"
+                  staticClass:
+                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                },
+                [_vm._v("\n                Title\n            ")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.title,
+                    expression: "title"
+                  }
+                ],
+                staticClass:
+                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                attrs: { required: "", type: "text", placeholder: "title" },
+                domProps: { value: _vm.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.title = $event.target.value
+                  }
                 }
-              ],
-              staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-              attrs: { required: "" },
-              on: {
-                change: function($event) {
-                  var $$selectedVal = Array.prototype.filter
-                    .call($event.target.options, function(o) {
-                      return o.selected
-                    })
-                    .map(function(o) {
-                      var val = "_value" in o ? o._value : o.value
-                      return val
-                    })
-                  _vm.category_id = $event.target.multiple
-                    ? $$selectedVal
-                    : $$selectedVal[0]
-                }
-              }
-            },
-            _vm._l(_vm.categories, function(category) {
-              return _c(
-                "option",
-                { key: category.id, domProps: { value: category.id } },
-                [_vm._v(_vm._s(category.name))]
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
+              _c(
+                "label",
+                {
+                  staticClass:
+                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                },
+                [_vm._v("\n                Category\n            ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.category_id,
+                      expression: "category_id"
+                    }
+                  ],
+                  staticClass:
+                    "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                  attrs: { required: "" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.category_id = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                _vm._l(_vm.categories, function(category) {
+                  return _c(
+                    "option",
+                    { key: category.id, domProps: { value: category.id } },
+                    [_vm._v(_vm._s(category.name))]
+                  )
+                }),
+                0
               )
-            }),
-            0
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-        _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            },
-            [_vm._v("\n                Image\n            ")]
-          ),
+            ])
+          ]),
           _vm._v(" "),
-          _c("input", {
-            ref: "image",
-            staticClass:
-              "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-            attrs: { required: "", type: "file" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-        _c("div", { staticClass: "w-full px-3" }, [
-          _c(
-            "label",
-            {
-              staticClass:
-                "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            },
-            [_vm._v("\n                Content\n            ")]
-          ),
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
+              _c(
+                "label",
+                {
+                  staticClass:
+                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                },
+                [_vm._v("\n                Image\n            ")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                ref: "image",
+                staticClass:
+                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                attrs: { required: "", type: "file" }
+              })
+            ])
+          ]),
           _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.content,
-                expression: "content"
-              }
-            ],
-            staticClass:
-              "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48",
-            attrs: { required: "", placeholder: "在这里输入正文内容..." },
-            domProps: { value: _vm.content },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c("div", { staticClass: "w-full px-3" }, [
+              _c(
+                "label",
+                {
+                  staticClass:
+                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                },
+                [_vm._v("\n                Content\n            ")]
+              ),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.content,
+                    expression: "content"
+                  }
+                ],
+                staticClass:
+                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48",
+                attrs: { required: "", placeholder: "content..." },
+                domProps: { value: _vm.content },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.content = $event.target.value
+                  }
                 }
-                _vm.content = $event.target.value
-              }
-            }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "flex items-center" }, [
-        _c(
-          "button",
-          {
-            staticClass:
-              "border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline",
-            attrs: { type: "button" },
-            on: { click: _vm.publishNewPost }
-          },
-          [_vm._v("\n            發布\n        ")]
-        )
-      ])
-    ]
-  )
+              })
+            ])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex items-center" }, [
+            _c(
+              "button",
+              {
+                staticClass:
+                  "border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline",
+                attrs: { type: "button" },
+                on: { click: _vm.publishNewPost }
+              },
+              [_vm._v("\n            發布\n        ")]
+            )
+          ])
+        ]
+      )
+    : _c("loading")
 }
 var staticRenderFns = []
 render._withStripped = true

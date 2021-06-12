@@ -70,11 +70,14 @@ export default {
     created() {
         this.postId = this.$route.params.id;
         this.loadPostsCategories();
-    },
-    mounted() {
         if (!this.loaded) {
             this.getPostData(this.postId);
         }
+    },
+    mounted() {
+        /*if (!this.loaded) {
+            this.getPostData(this.postId);
+        }*/
     },
     computed: {
         categories() {
@@ -85,6 +88,9 @@ export default {
         getPostData(id){
             axios.get('/api/posts/' + id).then((resp) => {
                 this.post = resp.data.data;
+                this.title = this.post.title;
+                this.category_id = this.post.category_id;
+                this.content = this.post.content;
                 this.loaded = true;
             }).then((err) => {
                 console.log(err);
@@ -98,6 +104,7 @@ export default {
             })
         },
         updatePost(){
+            this.loaded = false;
             let formData = new FormData();
             formData.append('title', this.title);
             formData.append('category_id', this.category_id);
@@ -107,7 +114,9 @@ export default {
          
             axios.post('/api/posts/' + this.postId, formData).then((resp) => {
                 if (resp.data.success === true) {
+                    this.loaded = true;
                     console.log('update success!');
+                    window.history.back();
                 } else {
                     console.log('update failed!');
                 }
@@ -116,9 +125,12 @@ export default {
             })
         },
         deletePost(){
+            this.loaded = false;
             axios.delete('/api/posts/' + this.postId).then((resp) => {
                 if(resp.data.success === true){
+                    this.loaded = true;
                     console.log('delete success!');
+                    window.history.back();
                 }else{
                     console.log('delete failed!');
                 }
