@@ -14,8 +14,8 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::post('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/adminLogin', [AuthController::class, 'login'])->name('login');
+Route::post('/adminLogout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/{any?}', function () {
     //return view('welcome');

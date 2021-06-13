@@ -2054,7 +2054,8 @@ __webpack_require__.r(__webpack_exports__);
         if (resp.data.success === true) {
           _this3.loaded = true;
           console.log('update success!');
-          window.history.back();
+
+          _this3.$router.push('/' + _this3.categories[_this3.category_id - 1].name);
         } else {
           console.log('update failed!');
         }
@@ -2233,7 +2234,7 @@ __webpack_require__.r(__webpack_exports__);
       var formData = new FormData();
       formData.append('email', this.email);
       formData.append('password', this.password);
-      axios.post('/login', formData).then(function (resp) {
+      axios.post('/adminLogin', formData).then(function (resp) {
         _this.loaded = false; //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
 
         localStorage.setItem('authenticated', true); //首頁
@@ -2368,7 +2369,7 @@ __webpack_require__.r(__webpack_exports__);
           //this.loaded = true;
           console.log('post success!'); //console.log(this.categories[this.category_id-1].name);
 
-          window.location.href = '/' + _this2.categories[_this2.category_id - 1].name;
+          _this2.$router.push('/' + _this2.categories[_this2.category_id - 1].name);
         } else {
           console.log('post failed!');
         }
@@ -2601,22 +2602,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  //props: ['authenticated'],
-  data: function data() {
-    return {
-      authenticated: false
-    };
-  },
-  created: function created() {
-    this.checkAuthenticated();
+  props: ['authenticated'],
+  created: function created() {//this.checkAuthenticated();
   },
   methods: {
     checkAuthenticated: function checkAuthenticated() {
       this.authenticated = localStorage.getItem('authenticated'); //console.log('auth: ' + localStorage.getItem('authenticated'));
     },
     logout: function logout() {
-      axios.post('/logout').then(function (resp) {
+      axios.post('/adminLogout').then(function (resp) {
         localStorage.removeItem('authenticated');
         window.location.href = '/';
       })["catch"](function (err) {
@@ -2743,7 +2740,7 @@ __webpack_require__.r(__webpack_exports__);
       path: '/about',
       component: __webpack_require__(/*! ./components/About */ "./resources/js/components/About.vue").default
     }, {
-      path: '/login',
+      path: '/adminLogin',
       component: __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.vue").default,
       beforeEnter: function beforeEnter(to, from, next) {
         if (localStorage.getItem('authenticated')) {
@@ -2763,7 +2760,7 @@ __webpack_require__.r(__webpack_exports__);
           next();
         } else {
           //進入登入頁面
-          next('/login');
+          next('/adminLogin');
         }
       }
     }, {
@@ -2776,7 +2773,7 @@ __webpack_require__.r(__webpack_exports__);
           next();
         } else {
           //進入登入頁面
-          next('/login');
+          next('/adminLogin');
         }
       }
     }, {
@@ -39889,36 +39886,39 @@ var render = function() {
               _vm._v(" "),
               _vm.authenticated
                 ? _c(
+                    "a",
+                    {
+                      staticClass:
+                        "text-blue-500 block px-4 py-2 mt-8 text-sm font-semibold"
+                    },
+                    [_vm._v("*adminMode")]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.authenticated
+                ? _c(
                     "router-link",
                     {
                       staticClass:
-                        "block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline",
+                        "block px-4 py-2 mt-2 text-sm font-semibold text-blue-500 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline",
                       attrs: { to: "/new" }
                     },
                     [_vm._v("發布")]
                   )
                 : _vm._e(),
               _vm._v(" "),
-              !_vm.authenticated
+              _vm.authenticated
                 ? _c(
-                    "router-link",
-                    {
-                      staticClass:
-                        "block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline",
-                      attrs: { to: "/login" }
-                    },
-                    [_vm._v("登入")]
-                  )
-                : _c(
                     "a",
                     {
                       staticClass:
-                        "block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline",
+                        "block px-4 py-2 mt-2 text-sm font-semibold text-blue-500 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline",
                       attrs: { href: "javascript:void(0);" },
                       on: { click: _vm.logout }
                     },
                     [_vm._v("登出")]
                   )
+                : _vm._e()
             ],
             1
           )

@@ -16,7 +16,7 @@ export default {
                     component: require('./components/About').default
                 },
                 {
-                    path: '/login',
+                    path: '/adminLogin',
                     component: require('./components/Login').default,
                     beforeEnter: (to, from, next) => {
                         if(localStorage.getItem('authenticated')) {
@@ -37,7 +37,7 @@ export default {
                             next();
                         }else{
                             //進入登入頁面
-                            next('/login');
+                            next('/adminLogin');
                         }
                     }
                 },
@@ -51,7 +51,7 @@ export default {
                             next();
                         }else{
                             //進入登入頁面
-                            next('/login');
+                            next('/adminLogin');
                         }
                     }
                 },

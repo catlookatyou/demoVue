@@ -98,7 +98,7 @@ export default {
                     //this.loaded = true;
                     console.log('post success!');
                     //console.log(this.categories[this.category_id-1].name);
-                    window.location.href = '/' + this.categories[this.category_id-1].name;
+                    this.$router.push('/' + this.categories[this.category_id-1].name);
                 } else {
                     console.log('post failed!');
                 }

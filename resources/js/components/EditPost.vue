@@ -116,7 +116,7 @@ export default {
                 if (resp.data.success === true) {
                     this.loaded = true;
                     console.log('update success!');
-                    window.history.back();
+                    this.$router.push('/' + this.categories[this.category_id-1].name);
                 } else {
                     console.log('update failed!');
                 }
