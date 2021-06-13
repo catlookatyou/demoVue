@@ -15,7 +15,7 @@
                     <a v-if="authenticated" class="text-blue-500 block px-4 py-2 mt-8 text-sm font-semibold">*adminMode</a>
                     <router-link v-if="authenticated" class="block px-4 py-2 mt-2 text-sm font-semibold text-blue-500 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" to="/new">發布</router-link>
                     <!--<router-link v-if="!authenticated" class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" to="/adminLogin">登入</router-link>-->
-                    <a href="javascript:void(0);" v-if="authenticated" @click="logout" class="block px-4 py-2 mt-2 text-sm font-semibold text-blue-500 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">登出</a>
+                     <router-link v-if="authenticated" class="block px-4 py-2 mt-2 text-sm font-semibold text-blue-500 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" to="/adminLogout">登出</router-link>
                 </nav>
             </div>
         </section>
@@ -32,14 +32,6 @@ export default {
         checkAuthenticated(){
             this.authenticated = localStorage.getItem('authenticated');
             //console.log('auth: ' + localStorage.getItem('authenticated'));
-        },
-        logout(){
-            axios.post('/adminLogout').then(resp => {
-                localStorage.removeItem('authenticated');
-                window.location.href = '/';
-            }).catch(err => {
-                console.log(err);
-            })
         }
     }
 }

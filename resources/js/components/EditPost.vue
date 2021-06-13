@@ -114,7 +114,7 @@ export default {
          
             axios.post('/api/posts/' + this.postId, formData).then((resp) => {
                 if (resp.data.success === true) {
-                    this.loaded = true;
+                    //this.loaded = true;
                     console.log('update success!');
                     this.$router.push('/' + this.categories[this.category_id-1].name);
                 } else {
@@ -128,7 +128,7 @@ export default {
             this.loaded = false;
             axios.delete('/api/posts/' + this.postId).then((resp) => {
                 if(resp.data.success === true){
-                    this.loaded = true;
+                    //this.loaded = true;
                     console.log('delete success!');
                     window.history.back();
                 }else{

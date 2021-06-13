@@ -29,6 +29,19 @@ export default {
                     }
                 },
                 {
+                    path: '/adminLogout',
+                    component: require('./components/Logout').default,
+                    beforeEnter: (to, from, next) => {
+                        if(localStorage.getItem('authenticated')) {
+                            //已登入，可訪問
+                            next();
+                        }else{
+                            //進入登入頁面
+                            next('/adminLogin');
+                        }
+                    }
+                },
+                {
                     path: '/new',
                     component: require('./components/NewPost').default,
                     beforeEnter: (to, from, next) => {

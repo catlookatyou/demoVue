@@ -52,11 +52,11 @@ export default {
             })
         },
         login(){
+            this.loaded = false;
             let formData = new FormData();
             formData.append('email', this.email);
             formData.append('password', this.password);
             axios.post('/adminLogin', formData).then(resp => {
-                this.loaded = false;
                 //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
                 localStorage.setItem('authenticated', true);
                 //首頁
