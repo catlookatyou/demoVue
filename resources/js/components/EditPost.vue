@@ -80,9 +80,9 @@ export default {
         }*/
     },
     computed: {
-        categories() {
+        /*categories() {
             return this.categories;
-        }
+        }*/
     },
     methods: {
         getPostData(id){
@@ -93,14 +93,14 @@ export default {
                 this.content = this.post.content;
                 this.loaded = true;
             }).then((err) => {
-                console.log(err);
+                //console.log('post: ' + err);
             })
         },
         loadPostsCategories(){
             axios.get('/api/posts/categories').then((resp) => {
                 this.categories = resp.data.data;
             }).catch((err) => {
-                console.log(err);
+                console.log('cat: ' + err);
             })
         },
         updatePost(){

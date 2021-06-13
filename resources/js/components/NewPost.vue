@@ -61,9 +61,9 @@ export default {
         this.loadPostsCategories();
     },
     computed: {
-        categories() {
+        /*categories() {
             return this.categories;
-        }
+        }*/
     },
     methods: {
         loadPostsCategories(){

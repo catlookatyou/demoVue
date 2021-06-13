@@ -25,6 +25,7 @@ class BlogSeeder extends Seeder
         $user = User::factory([
             'name' => 'catlookatyou',
             'email' => 'cat@mail.com',
+            'password'=>bcrypt('12345678'),
         ])->create();
 
         //創建三個分類
