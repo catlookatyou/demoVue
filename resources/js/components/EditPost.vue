@@ -114,7 +114,8 @@ export default {
             let formData = new FormData();
             formData.append('title', this.title);
             formData.append('category_id', this.category_id);
-            formData.append('image', this.$refs.image.files[0]);
+            //formData.append('image', this.$refs.image.files[0]);
+            formData.append('image', this.$refs.image.files[0] ? this.$refs.image.files[0] : '');
             formData.append('content', this.content);
             formData.append('_method', 'PUT')
          

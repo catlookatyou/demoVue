@@ -44,7 +44,7 @@ class PostController extends Controller
                 'required',
                 Rule::in(Category::query()->pluck('id')->toArray())
             ],
-            //'image' => 'required|image|max:1024',
+            'image' => 'nullable|image|max:1024',
             'content' => 'required|string',
         ]);
 
@@ -80,7 +80,7 @@ class PostController extends Controller
                 'required',
                 Rule::in(Category::query()->pluck('id')->toArray())
             ],
-            //'image' => 'required|image|max:1024',
+            'image' => 'nullable|image|max:1024',
             'content' => 'required|string',
         ]);
 
