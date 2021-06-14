@@ -1930,6 +1930,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _common_Loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/Loading */ "./resources/js/components/common/Loading.vue");
+/* harmony import */ var _common_ErrorMsg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/ErrorMsg */ "./resources/js/components/common/ErrorMsg.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -1985,9 +1990,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //import FlashMessage from "./common/FlashMessage";
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Loading: _common_Loading__WEBPACK_IMPORTED_MODULE_0__.default
+    Loading: _common_Loading__WEBPACK_IMPORTED_MODULE_0__.default,
+    ErrorMsg: _common_ErrorMsg__WEBPACK_IMPORTED_MODULE_1__.default
   },
   data: function data() {
     return {
@@ -1997,7 +2004,8 @@ __webpack_require__.r(__webpack_exports__);
       title: '',
       category_id: '',
       content: '',
-      postId: ''
+      postId: '',
+      errors: ''
     };
   },
   created: function created() {
@@ -2060,7 +2068,9 @@ __webpack_require__.r(__webpack_exports__);
           console.log('update failed!');
         }
       })["catch"](function (err) {
-        console.log('err = '.err);
+        _this3.loaded = true; //console.log('err = ' + JSON.stringify(err.response.data.errors));
+
+        _this3.errors = err.response.data.errors;
       });
     },
     deletePost: function deletePost() {
@@ -2174,6 +2184,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _common_Loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/Loading */ "./resources/js/components/common/Loading.vue");
+/* harmony import */ var _common_ErrorMsg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/ErrorMsg */ "./resources/js/components/common/ErrorMsg.vue");
+//
+//
 //
 //
 //
@@ -2198,16 +2211,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Loading: _common_Loading__WEBPACK_IMPORTED_MODULE_0__.default
+    Loading: _common_Loading__WEBPACK_IMPORTED_MODULE_0__.default,
+    ErrorMsg: _common_ErrorMsg__WEBPACK_IMPORTED_MODULE_1__.default
   },
   data: function data() {
     return {
       email: '',
       password: '',
       submitted: false,
-      loaded: true
+      loaded: true,
+      errors: ''
     };
   },
   created: function created() {
@@ -2227,6 +2243,8 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     login: function login() {
+      var _this = this;
+
       this.loaded = false;
       var formData = new FormData();
       formData.append('email', this.email);
@@ -2237,7 +2255,9 @@ __webpack_require__.r(__webpack_exports__);
 
         window.location.href = '/'; //this.$router.push('/');
       })["catch"](function (err) {
-        console.log('login: ' + err);
+        _this.loaded = true; //console.log('err = ' + JSON.stringify(err.response.data.errors));
+
+        _this.errors = err.response.data.errors; //console.log('login: ' + err);
       });
       this.submitted = true;
     }
@@ -2296,6 +2316,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _common_Loading__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common/Loading */ "./resources/js/components/common/Loading.vue");
+/* harmony import */ var _common_ErrorMsg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/ErrorMsg */ "./resources/js/components/common/ErrorMsg.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -2343,9 +2368,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //import FlashMessage from "./common/FlashMessage";
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Loading: _common_Loading__WEBPACK_IMPORTED_MODULE_0__.default
+    Loading: _common_Loading__WEBPACK_IMPORTED_MODULE_0__.default,
+    ErrorMsg: _common_ErrorMsg__WEBPACK_IMPORTED_MODULE_1__.default
   },
   data: function data() {
     return {
@@ -2353,7 +2380,8 @@ __webpack_require__.r(__webpack_exports__);
       categories: [],
       title: '',
       category_id: '',
-      content: ''
+      content: '',
+      errors: ''
     };
   },
   created: function created() {
@@ -2408,10 +2436,35 @@ __webpack_require__.r(__webpack_exports__);
           console.log('post failed!');
         }
       })["catch"](function (err) {
-        console.log('err = '.err);
+        _this2.loaded = true; //console.log('err = ' + JSON.stringify(err.response.data.errors));
+
+        _this2.errors = err.response.data.errors;
       });
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/ErrorMsg.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/ErrorMsg.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['error']
 });
 
 /***/ }),
@@ -38480,6 +38533,45 @@ component.options.__file = "resources/js/components/NewPost.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/common/ErrorMsg.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/common/ErrorMsg.vue ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ErrorMsg_vue_vue_type_template_id_7afb7bbc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ErrorMsg.vue?vue&type=template&id=7afb7bbc& */ "./resources/js/components/common/ErrorMsg.vue?vue&type=template&id=7afb7bbc&");
+/* harmony import */ var _ErrorMsg_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ErrorMsg.vue?vue&type=script&lang=js& */ "./resources/js/components/common/ErrorMsg.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _ErrorMsg_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _ErrorMsg_vue_vue_type_template_id_7afb7bbc___WEBPACK_IMPORTED_MODULE_0__.render,
+  _ErrorMsg_vue_vue_type_template_id_7afb7bbc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/common/ErrorMsg.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/common/List.vue":
 /*!*************************************************!*\
   !*** ./resources/js/components/common/List.vue ***!
@@ -38787,6 +38879,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/common/ErrorMsg.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/common/ErrorMsg.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ErrorMsg_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ErrorMsg.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/ErrorMsg.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ErrorMsg_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/common/List.vue?vue&type=script&lang=js&":
 /*!**************************************************************************!*\
   !*** ./resources/js/components/common/List.vue?vue&type=script&lang=js& ***!
@@ -38986,6 +39094,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/common/ErrorMsg.vue?vue&type=template&id=7afb7bbc&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/common/ErrorMsg.vue?vue&type=template&id=7afb7bbc& ***!
+  \************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ErrorMsg_vue_vue_type_template_id_7afb7bbc___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ErrorMsg_vue_vue_type_template_id_7afb7bbc___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ErrorMsg_vue_vue_type_template_id_7afb7bbc___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./ErrorMsg.vue?vue&type=template&id=7afb7bbc& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/ErrorMsg.vue?vue&type=template&id=7afb7bbc&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/common/List.vue?vue&type=template&id=865bef32&":
 /*!********************************************************************************!*\
   !*** ./resources/js/components/common/List.vue?vue&type=template&id=865bef32& ***!
@@ -39148,155 +39273,193 @@ var render = function() {
         },
         [
           _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Title\n            ")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
+            _c(
+              "div",
+              { staticClass: "w-full px-3" },
+              [
+                _c(
+                  "label",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.title,
-                    expression: "title"
-                  }
-                ],
-                staticClass:
-                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-                attrs: { required: "", type: "text", placeholder: "title" },
-                domProps: { value: _vm.title },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.title = $event.target.value
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Category\n            ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Title\n            ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.category_id,
-                      expression: "category_id"
+                      value: _vm.title,
+                      expression: "title"
                     }
                   ],
                   staticClass:
                     "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-                  attrs: { required: "" },
+                  attrs: { required: "", type: "text", placeholder: "title" },
+                  domProps: { value: _vm.title },
                   on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.category_id = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.title = $event.target.value
                     }
                   }
-                },
-                _vm._l(_vm.categories, function(category) {
-                  return _c(
-                    "option",
-                    { key: category.id, domProps: { value: category.id } },
-                    [_vm._v(_vm._s(category.name))]
-                  )
                 }),
-                0
-              )
-            ])
+                _vm._v(" "),
+                _vm.errors.title
+                  ? _c("error-msg", { attrs: { error: _vm.errors.title } })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Image\n            ")]
-              ),
-              _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75",
-                style: "background-image: url(" + _vm.post.image + ")",
-                attrs: { title: _vm.post.title }
-              }),
-              _vm._v(" "),
-              _c("input", {
-                ref: "image",
-                staticClass:
-                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-                attrs: { required: "", type: "file" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Content\n            ")]
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
+            _c(
+              "div",
+              { staticClass: "w-full px-3 md:w-1/2" },
+              [
+                _c(
+                  "label",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.content,
-                    expression: "content"
-                  }
-                ],
-                staticClass:
-                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48",
-                attrs: { required: "", placeholder: "content..." },
-                domProps: { value: _vm.content },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Category\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.category_id,
+                        expression: "category_id"
+                      }
+                    ],
+                    staticClass:
+                      "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                    attrs: { required: "" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.category_id = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
                     }
-                    _vm.content = $event.target.value
+                  },
+                  _vm._l(_vm.categories, function(category) {
+                    return _c(
+                      "option",
+                      { key: category.id, domProps: { value: category.id } },
+                      [_vm._v(_vm._s(category.name))]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _vm.errors.category_id
+                  ? _c("error-msg", {
+                      attrs: { error: _vm.errors.category_id }
+                    })
+                  : _vm._e()
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c(
+              "div",
+              { staticClass: "w-full px-3 md:w-1/2" },
+              [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Image\n            ")]
+                ),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass:
+                    "h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75",
+                  style: "background-image: url(" + _vm.post.image + ")",
+                  attrs: { title: _vm.post.title }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  ref: "image",
+                  staticClass:
+                    "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                  attrs: { required: "", type: "file" }
+                }),
+                _vm._v(" "),
+                _vm.errors.image
+                  ? _c("error-msg", { attrs: { error: _vm.errors.image } })
+                  : _vm._e()
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c(
+              "div",
+              { staticClass: "w-full px-3" },
+              [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Content\n            ")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.content,
+                      expression: "content"
+                    }
+                  ],
+                  staticClass:
+                    "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48",
+                  attrs: { required: "", placeholder: "content..." },
+                  domProps: { value: _vm.content },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.content = $event.target.value
+                    }
                   }
-                }
-              })
-            ])
+                }),
+                _vm._v(" "),
+                _vm.errors.content
+                  ? _c("error-msg", { attrs: { error: _vm.errors.content } })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex items-center" }, [
@@ -39389,67 +39552,89 @@ var render = function() {
             "bg-white shadow-md rounded mt-6 px-8 pt-6 pb-8 mb-6 flex flex-col"
         },
         [
-          _c("div", { staticClass: "mb-4" }, [
-            _c(
-              "label",
-              { staticClass: "block text-grey-darker text-sm font-bold mb-2" },
-              [_vm._v("\n            Email\n        ")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
+          _c(
+            "div",
+            { staticClass: "mb-4" },
+            [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.email,
-                  expression: "email"
-                }
-              ],
-              staticClass:
-                "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-              attrs: { type: "email", placeholder: "Email" },
-              domProps: { value: _vm.email },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                  staticClass: "block text-grey-darker text-sm font-bold mb-2"
+                },
+                [_vm._v("\n            Email\n        ")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.email,
+                    expression: "email"
                   }
-                  _vm.email = $event.target.value
+                ],
+                staticClass:
+                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                attrs: { type: "email" },
+                domProps: { value: _vm.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.email = $event.target.value
+                  }
                 }
-              }
-            })
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.errors.email
+                ? _c("error-msg", { attrs: { error: _vm.errors.email } })
+                : _vm._e()
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("div", { staticClass: "mb-6" }, [
-            _c(
-              "label",
-              { staticClass: "block text-grey-darker text-sm font-bold mb-2" },
-              [_vm._v("\n            Password\n        ")]
-            ),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
+          _c(
+            "div",
+            { staticClass: "mb-6" },
+            [
+              _c(
+                "label",
                 {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.password,
-                  expression: "password"
-                }
-              ],
-              staticClass:
-                "shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3",
-              attrs: { type: "password" },
-              domProps: { value: _vm.password },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
+                  staticClass: "block text-grey-darker text-sm font-bold mb-2"
+                },
+                [_vm._v("\n            Password\n        ")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.password,
+                    expression: "password"
                   }
-                  _vm.password = $event.target.value
+                ],
+                staticClass:
+                  "shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3",
+                attrs: { type: "password" },
+                domProps: { value: _vm.password },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.password = $event.target.value
+                  }
                 }
-              }
-            })
-          ]),
+              }),
+              _vm._v(" "),
+              _vm.errors.password
+                ? _c("error-msg", { attrs: { error: _vm.errors.password } })
+                : _vm._e()
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "flex items-center justify-between" }, [
             _c(
@@ -39524,148 +39709,186 @@ var render = function() {
         },
         [
           _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Title\n            ")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
+            _c(
+              "div",
+              { staticClass: "w-full px-3" },
+              [
+                _c(
+                  "label",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.title,
-                    expression: "title"
-                  }
-                ],
-                staticClass:
-                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-                attrs: { required: "", type: "text", placeholder: "title" },
-                domProps: { value: _vm.title },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.title = $event.target.value
-                  }
-                }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Category\n            ")]
-              ),
-              _vm._v(" "),
-              _c(
-                "select",
-                {
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Title\n            ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
                   directives: [
                     {
                       name: "model",
                       rawName: "v-model",
-                      value: _vm.category_id,
-                      expression: "category_id"
+                      value: _vm.title,
+                      expression: "title"
                     }
                   ],
                   staticClass:
                     "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-                  attrs: { required: "" },
+                  attrs: { required: "", type: "text", placeholder: "title" },
+                  domProps: { value: _vm.title },
                   on: {
-                    change: function($event) {
-                      var $$selectedVal = Array.prototype.filter
-                        .call($event.target.options, function(o) {
-                          return o.selected
-                        })
-                        .map(function(o) {
-                          var val = "_value" in o ? o._value : o.value
-                          return val
-                        })
-                      _vm.category_id = $event.target.multiple
-                        ? $$selectedVal
-                        : $$selectedVal[0]
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.title = $event.target.value
                     }
                   }
-                },
-                _vm._l(_vm.categories, function(category) {
-                  return _c(
-                    "option",
-                    { key: category.id, domProps: { value: category.id } },
-                    [_vm._v(_vm._s(category.name))]
-                  )
                 }),
-                0
-              )
-            ])
+                _vm._v(" "),
+                _vm.errors.title
+                  ? _c("error-msg", { attrs: { error: _vm.errors.title } })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3 md:w-1/2" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Image\n            ")]
-              ),
-              _vm._v(" "),
-              _c("input", {
-                ref: "image",
-                staticClass:
-                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
-                attrs: { required: "", type: "file" }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
-            _c("div", { staticClass: "w-full px-3" }, [
-              _c(
-                "label",
-                {
-                  staticClass:
-                    "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                },
-                [_vm._v("\n                Content\n            ")]
-              ),
-              _vm._v(" "),
-              _c("textarea", {
-                directives: [
+            _c(
+              "div",
+              { staticClass: "w-full px-3 md:w-1/2" },
+              [
+                _c(
+                  "label",
                   {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.content,
-                    expression: "content"
-                  }
-                ],
-                staticClass:
-                  "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48",
-                attrs: { required: "", placeholder: "content..." },
-                domProps: { value: _vm.content },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Category\n            ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "select",
+                  {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.category_id,
+                        expression: "category_id"
+                      }
+                    ],
+                    staticClass:
+                      "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                    attrs: { required: "" },
+                    on: {
+                      change: function($event) {
+                        var $$selectedVal = Array.prototype.filter
+                          .call($event.target.options, function(o) {
+                            return o.selected
+                          })
+                          .map(function(o) {
+                            var val = "_value" in o ? o._value : o.value
+                            return val
+                          })
+                        _vm.category_id = $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      }
                     }
-                    _vm.content = $event.target.value
+                  },
+                  _vm._l(_vm.categories, function(category) {
+                    return _c(
+                      "option",
+                      { key: category.id, domProps: { value: category.id } },
+                      [_vm._v(_vm._s(category.name))]
+                    )
+                  }),
+                  0
+                ),
+                _vm._v(" "),
+                _vm.errors.category_id
+                  ? _c("error-msg", {
+                      attrs: { error: _vm.errors.category_id }
+                    })
+                  : _vm._e()
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c(
+              "div",
+              { staticClass: "w-full px-3 md:w-1/2" },
+              [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Image\n            ")]
+                ),
+                _vm._v(" "),
+                _c("input", {
+                  ref: "image",
+                  staticClass:
+                    "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker",
+                  attrs: { required: "", type: "file" }
+                }),
+                _vm._v(" "),
+                _vm.errors.image
+                  ? _c("error-msg", { attrs: { error: _vm.errors.image } })
+                  : _vm._e()
+              ],
+              1
+            )
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+            _c(
+              "div",
+              { staticClass: "w-full px-3" },
+              [
+                _c(
+                  "label",
+                  {
+                    staticClass:
+                      "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  },
+                  [_vm._v("\n                Content\n            ")]
+                ),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.content,
+                      expression: "content"
+                    }
+                  ],
+                  staticClass:
+                    "shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48",
+                  attrs: { required: "", placeholder: "content..." },
+                  domProps: { value: _vm.content },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.content = $event.target.value
+                    }
                   }
-                }
-              })
-            ])
+                }),
+                _vm._v(" "),
+                _vm.errors.content
+                  ? _c("error-msg", { attrs: { error: _vm.errors.content } })
+                  : _vm._e()
+              ],
+              1
+            )
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "flex items-center" }, [
@@ -39683,6 +39906,45 @@ var render = function() {
         ]
       )
     : _c("loading")
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/ErrorMsg.vue?vue&type=template&id=7afb7bbc&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/common/ErrorMsg.vue?vue&type=template&id=7afb7bbc& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      directives: [
+        {
+          name: "show",
+          rawName: "v-show",
+          value: _vm.error,
+          expression: "error"
+        }
+      ],
+      staticClass: "text-sm text-red-500 font-semibold"
+    },
+    [_vm._v("\n    " + _vm._s(_vm.error) + "\n")]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

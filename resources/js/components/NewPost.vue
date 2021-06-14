@@ -6,6 +6,7 @@
                     Title
                 </label>
                 <input required v-model="title" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" type="text" placeholder="title">
+                <error-msg v-if="errors.title" :error="errors.title"></error-msg>
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -16,6 +17,7 @@
                 <select required v-model="category_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker">
                     <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
                 </select>
+                <error-msg v-if="errors.category_id" :error="errors.category_id"></error-msg>
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -24,6 +26,7 @@
                     Image
                 </label>
                 <input required ref="image" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" type="file">
+                <error-msg v-if="errors.image" :error="errors.image"></error-msg>
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
@@ -32,6 +35,7 @@
                     Content
                 </label>
                 <textarea required v-model="content" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker h-48" placeholder="content..."></textarea>
+                <error-msg v-if="errors.content" :error="errors.content"></error-msg>
             </div>
         </div>
         <div class="flex items-center">
@@ -46,8 +50,9 @@
 <script>
 //import FlashMessage from "./common/FlashMessage";
 import Loading from "./common/Loading";
+import ErrorMsg from "./common/ErrorMsg";
 export default {
-    components: {Loading},
+    components: {Loading, ErrorMsg},
     data() {
         return {
             loaded: false,
@@ -55,6 +60,7 @@ export default {
             title: '',
             category_id: '',
             content: '',
+            errors: ''
         }
     },
     created() {
@@ -103,7 +109,9 @@ export default {
                     console.log('post failed!');
                 }
             }).catch((err) => {
-                console.log('err = '.err);
+                this.loaded = true;
+                //console.log('err = ' + JSON.stringify(err.response.data.errors));
+                this.errors = err.response.data.errors;
             })
         }
     }
