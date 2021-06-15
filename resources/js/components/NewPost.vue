@@ -1,7 +1,7 @@
 <template>
     <div v-if="loaded" class="bg-white flex flex-col">
         <div class="flex flex-wrap -mx-3 mb-6">
-            <div class="w-full px-3">
+            <div class="w-full px-3 md:w-1/2">
                 <label class="block uppercase text-gray-700 text-xs font-bold mb-2">
                     Title
                 </label>

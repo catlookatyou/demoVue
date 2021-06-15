@@ -2068,6 +2068,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 //import FlashMessage from "./common/FlashMessage";
 
 
@@ -42200,9 +42206,24 @@ var render = function() {
   return _vm.loaded
     ? _c("div", { staticClass: "bg-white flex flex-col" }, [
         _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
+          _c("div", { staticClass: "w-full px-3" }, [
+            _c("p", { staticClass: "text-gray-600 text-xs mb-2" }, [
+              _vm._v(" " + _vm._s(_vm.post.created_at) + " ")
+            ]),
+            _vm._v(" "),
+            _vm.post.image
+              ? _c("div", [
+                  _c("img", {
+                    staticClass: "object-contain w-auto h-auto mb-2",
+                    attrs: { src: _vm.post.image, title: _vm.post.title }
+                  })
+                ])
+              : _vm._e()
+          ]),
+          _vm._v(" "),
           _c(
             "div",
-            { staticClass: "w-full px-3" },
+            { staticClass: "w-full px-3 md:w-1/2 " },
             [
               _c(
                 "label",
@@ -42319,13 +42340,6 @@ var render = function() {
                 },
                 [_vm._v("\n                Image\n            ")]
               ),
-              _vm._v(" "),
-              _c("div", {
-                staticClass:
-                  "h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75",
-                style: "background-image: url(" + _vm.post.image + ")",
-                attrs: { title: _vm.post.title }
-              }),
               _vm._v(" "),
               _c("input", {
                 ref: "image",
@@ -42483,7 +42497,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "appearance-none border w-full text-grey-darker text-xs px-1 py-1",
+                "md:w-1/2 appearance-none border w-full text-grey-darker text-xs px-1 py-1",
               attrs: { type: "email" },
               domProps: { value: _vm.email },
               on: {
@@ -42523,7 +42537,7 @@ var render = function() {
                 }
               ],
               staticClass:
-                "appearance-none border w-full text-grey-darker text-xs px-1 py-1",
+                "md:w-1/2 appearance-none border w-full text-grey-darker text-xs px-1 py-1",
               attrs: { type: "password" },
               domProps: { value: _vm.password },
               on: {
@@ -42610,7 +42624,7 @@ var render = function() {
         _c("div", { staticClass: "flex flex-wrap -mx-3 mb-6" }, [
           _c(
             "div",
-            { staticClass: "w-full px-3" },
+            { staticClass: "w-full px-3 md:w-1/2" },
             [
               _c(
                 "label",
@@ -42919,12 +42933,12 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "w-full mb-5" }, [
     _vm.post.image
-      ? _c("div", {
-          staticClass:
-            "h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75",
-          style: "background-image: url(" + _vm.post.image + ")",
-          attrs: { title: _vm.post.title }
-        })
+      ? _c("div", [
+          _c("img", {
+            staticClass: "object-contain w-auto h-auto",
+            attrs: { src: _vm.post.image, title: _vm.post.title }
+          })
+        ])
       : _vm._e(),
     _vm._v(" "),
     _c(
@@ -42934,7 +42948,7 @@ var render = function() {
         _c("div", [
           _c(
             "div",
-            { staticClass: "md:mt-0 text-gray-700 font-bold text-sm mb-2" },
+            { staticClass: "text-gray-700 font-bold text-sm mt-2 mb-2" },
             [
               _vm._v(
                 "\n                    " +
@@ -42950,14 +42964,10 @@ var render = function() {
           })
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "flex mt-3" }, [
+        _c("div", { staticClass: "flex mt-2" }, [
           _c(
             "div",
             [
-              _c("p", { staticClass: "text-gray-600 text-xs" }, [
-                _vm._v(" " + _vm._s(_vm.post.created_at) + " ")
-              ]),
-              _vm._v(" "),
               _vm.authenticated
                 ? _c(
                     "router-link",
@@ -43025,11 +43035,7 @@ var staticRenderFns = [
               "text-black-500 opacity-75 top-1/2 my-0 mx-auto block relative w-0 h-0",
             staticStyle: { top: "50%" }
           },
-          [
-            _c("i", { staticClass: "fas fa-circle-notch fa-spin fa-5x" }, [
-              _vm._v("loading...")
-            ])
-          ]
+          [_c("i", { staticClass: "text-sm" }, [_vm._v("loading...")])]
         )
       ]
     )

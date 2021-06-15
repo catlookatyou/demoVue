@@ -4,14 +4,14 @@
             <label class="block text-grey-darker text-xs font-bold mb-2">
                 Email
             </label>
-            <input v-model="email" class="appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="email">
+            <input v-model="email" class="md:w-1/2 appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="email">
             <error-msg v-if="errors.email" :error="errors.email"></error-msg>
         </div>
         <div class="mb-6">
             <label class="block text-grey-darker text-xs font-bold mb-2">
                 Password
             </label>
-            <input v-model="password" class="appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="password">
+            <input v-model="password" class="md:w-1/2 appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="password">
             <error-msg v-if="errors.password" :error="errors.password"></error-msg>
         </div>
         <div class="flex items-center justify-between">

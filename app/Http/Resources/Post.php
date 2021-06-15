@@ -23,7 +23,7 @@ class Post extends JsonResource
             'image' => $this->image,
             'author' => User::make($this->author),
             'category' => Category::make($this->category),
-            'created_at' => $this->created_at->diffForHumans()
+            'created_at' => $this->created_at->format('Y-m-d')
         ];
     }
 }

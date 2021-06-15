@@ -2,6 +2,12 @@
     <div v-if="loaded" class="bg-white flex flex-col">
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
+                <p class="text-gray-600 text-xs mb-2"> {{ post.created_at }} </p>
+                <div v-if="post.image">
+                    <img :src="post.image" :title="post.title" class="object-contain w-auto h-auto mb-2" />
+                </div>
+            </div>
+            <div class="w-full px-3 md:w-1/2 ">
                 <label class="block uppercase text-gray-700 text-xs font-bold mb-2">
                     Title
                 </label>
@@ -25,9 +31,9 @@
                 <label class="block uppercase text-gray-700 text-xs font-bold mb-2">
                     Image
                 </label>
-                <div class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden opacity-75"
+                <!--<div class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden"
                     :style="'background-image: url(' + post.image  +')'" :title="post.title">
-                </div>
+                </div>-->
                 <input required ref="image" class="appearance-none border w-full py-1 px-1 text-xs text-grey-darker" type="file">
                 <error-msg v-if="errors.image" :error="errors.image"></error-msg>
             </div>
