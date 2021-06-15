@@ -4,12 +4,16 @@ export default {
     routes: [
         {
             path: '/',
-            redirect: '/home',
+            redirect: '/',
             component: require('./components/layout/Layout').default,
             children: [
                 {
                     path: '/',
                     component: require('./components/Home').default
+                },
+                {
+                    path: '/all',
+                    component: require('./components/AllPost').default
                 },
                 {
                     path: '/about',

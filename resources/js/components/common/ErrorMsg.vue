@@ -1,5 +1,5 @@
 <template>
-    <div class="text-sm text-red-500 font-semibold" v-show="error">
+    <div class="text-xs text-red-500 font-semibold" v-show="error">
         {{ error }}
     </div>
 </template>

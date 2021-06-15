@@ -4,7 +4,7 @@
             <!-- sidbar -->
             <navigation :authenticated="authenticated"></navigation>
             <!-- content -->
-            <div class="w-4/5 pt-12 px-4 py-4">
+            <div class="w-3/4 pt-12 py-4 ml-8">
                 <!-- vue-router -->
                 <router-view></router-view>
             </div>

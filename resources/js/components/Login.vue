@@ -1,21 +1,21 @@
 <template>
-    <div v-if="loaded" class="bg-white shadow-md rounded mt-6 px-8 pt-6 pb-8 mb-6 flex flex-col">
+    <div v-if="loaded" class="bg-white flex flex-col">
         <div class="mb-4">
-            <label class="block text-grey-darker text-sm font-bold mb-2">
+            <label class="block text-grey-darker text-xs font-bold mb-2">
                 Email
             </label>
-            <input v-model="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker" type="email">
+            <input v-model="email" class="appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="email">
             <error-msg v-if="errors.email" :error="errors.email"></error-msg>
         </div>
         <div class="mb-6">
-            <label class="block text-grey-darker text-sm font-bold mb-2">
+            <label class="block text-grey-darker text-xs font-bold mb-2">
                 Password
             </label>
-            <input v-model="password" class="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3" type="password">
+            <input v-model="password" class="appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="password">
             <error-msg v-if="errors.password" :error="errors.password"></error-msg>
         </div>
         <div class="flex items-center justify-between">
-            <button @click="login" type="button" class="border border-green-500 bg-green-500 text-white rounded-md px-4 py-2 m-2 transition duration-500 ease select-none hover:bg-green-600 focus:outline-none focus:shadow-outline">
+            <button @click="login" type="button" class="text-xs border px-4 py-2 font-bold">
                 登入
             </button>
         </div>
