@@ -7,7 +7,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 
-class BlogSeeder extends Seeder
+class DevSeeder extends Seeder
 {
     /**
      * Run the database seeds.

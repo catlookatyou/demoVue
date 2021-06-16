@@ -43108,24 +43108,19 @@ var render = function() {
     _c("section", { staticClass: "mb-10" }, [
       _c(
         "div",
-        {
-          staticClass:
-            "fixed flex flex-col md:w-64 text-gray-700 bg-transparent"
-        },
+        { staticClass: "fixed flex flex-col text-gray-700 bg-transparent" },
         [
           _vm._m(0),
           _vm._v(" "),
           _c(
             "nav",
-            {
-              staticClass: "flex-grow md:block pb-4 md:pb-0 md:overflow-y-auto"
-            },
+            { staticClass: "flex-grow overflow-y-auto" },
             [
               _c(
                 "router-link",
                 {
                   staticClass:
-                    "block px-4 py-2 mt-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
+                    "block px-4 py-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
                   attrs: { to: "/" }
                 },
                 [_vm._v("Home")]
@@ -43135,7 +43130,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "block px-4 py-2 mt-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
+                    "block px-4 py-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
                   attrs: {
                     to: { name: "category", params: { name: "作品1號" } }
                   }
@@ -43147,7 +43142,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "block px-4 py-2 mt-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
+                    "block px-4 py-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
                   attrs: {
                     to: { name: "category", params: { name: "作品2號" } }
                   }
@@ -43159,9 +43154,9 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "block px-4 py-2 mt-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
+                    "block px-4 py-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
                   attrs: {
-                    to: { name: "category", params: { name: "作品ˇ號" } }
+                    to: { name: "category", params: { name: "作品3號" } }
                   }
                 },
                 [_vm._v("作品3號")]
@@ -43171,7 +43166,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "block px-4 py-2 mt-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
+                    "block px-4 py-2 text-xs font-semibold text-gray-900 bg-transparent rounded-lg",
                   attrs: { to: "/about" }
                 },
                 [_vm._v("About")]
@@ -43193,7 +43188,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "block px-4 py-2 mt-2 text-xs font-semibold text-blue-500 bg-transparent rounded-lg",
+                        "block px-4 py-2 text-xs font-semibold text-blue-500 bg-transparent rounded-lg",
                       attrs: { to: "/new" }
                     },
                     [_vm._v("發布")]
@@ -43205,7 +43200,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "block px-4 py-2 mt-2 text-xs font-semibold text-blue-500 bg-transparent rounded-lg",
+                        "block px-4 py-2 text-xs font-semibold text-blue-500 bg-transparent rounded-lg",
                       attrs: { to: "/adminLogout" }
                     },
                     [_vm._v("登出")]
@@ -43230,7 +43225,7 @@ var staticRenderFns = [
         staticClass:
           "flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between"
       },
-      [_c("h1", { staticClass: "mb-4" }, [_vm._v("貓")])]
+      [_c("h1", { staticClass: "mb-4 text-2xl text-pink-300" }, [_vm._v("貓")])]
     )
   }
 ]
