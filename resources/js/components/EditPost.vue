@@ -2,25 +2,25 @@
     <div v-if="loaded" class="bg-white flex flex-col">
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
-                <p class="text-gray-600 text-xs mb-2"> {{ post.created_at }} </p>
+                <p class="text-gray-900 font-semibold text-xs mb-2"> {{ post.created_at }} </p>
                 <div v-if="post.image">
                     <img :src="post.image" :title="post.title" class="object-contain w-auto h-auto mb-2" />
                 </div>
             </div>
             <div class="w-full px-3 md:w-1/2 ">
-                <label class="block uppercase text-gray-700 text-xs font-bold mb-2">
+                <label class="block uppercase text-gray-900 text-xs font-semibold mb-2">
                     Title
                 </label>
-                <input required v-model="title" class="appearance-none border w-full px-1 py-1 text-grey-darker text-xs" type="text" placeholder="title">
+                <input required v-model="title" class="appearance-none border w-full px-1 py-1 text-gray-900 text-xs" type="text">
                 <error-msg v-if="errors.title" :error="errors.title"></error-msg>
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3 md:w-1/2">
-                <label class="block uppercase text-gray-700 text-xs font-bold mb-2">
+                <label class="block uppercase text-gray-900 text-xs font-semibold mb-2">
                     Category
                 </label>
-                <select required v-model="category_id" class="appearance-none border w-full py-1 px-1 text-xs text-grey-darker">
+                <select required v-model="category_id" class="appearance-none border w-full py-1 px-1 text-xs text-gray-900">
                     <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
                 </select>
                 <error-msg v-if="errors.category_id" :error="errors.category_id"></error-msg>
@@ -28,32 +28,32 @@
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3 md:w-1/2">
-                <label class="block uppercase text-gray-700 text-xs font-bold mb-2">
+                <label class="block uppercase text-gray-900 text-xs font-semibold mb-2">
                     Image
                 </label>
                 <!--<div class="h-48 lg:w-48 flex-none bg-cover text-center overflow-hidden"
                     :style="'background-image: url(' + post.image  +')'" :title="post.title">
                 </div>-->
-                <input required ref="image" class="appearance-none border w-full py-1 px-1 text-xs text-grey-darker" type="file">
+                <input required ref="image" class="appearance-none border w-full py-1 px-1 text-xs text-gray-900" type="file">
                 <error-msg v-if="errors.image" :error="errors.image"></error-msg>
             </div>
         </div>
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
-                <label class="block uppercase text-gray-700 text-xs font-bold mb-2">
+                <label class="block uppercase text-gray-900 text-xs font-semibold mb-2">
                     Content
                 </label>
-                <textarea required v-model="content" class="appearance-none border w-full py-1 px-1 text-xs text-grey-darker h-48" placeholder="content..."></textarea>
+                <textarea required v-model="content" class="appearance-none border w-full py-1 px-1 text-xs text-gray-900 h-48" placeholder="content..."></textarea>
                 <error-msg v-if="errors.content" :error="errors.content"></error-msg>
             </div>
         </div>
         <div class="flex items-center">
-            <button @click="updatePost" type="button" class="border px-4 py-2 text-xs font-bold mb-4">
+            <button @click="updatePost" type="button" class="border px-4 py-2 text-xs font-semibold mb-4 text-gray-900">
                 編輯
             </button>
         </div>
         <div class="flex items-center">
-            <button @click="deletePost" type="button" class="border px-4 py-2 text-xs font-bold text-red-500">
+            <button @click="deletePost" type="button" class="border px-4 py-2 text-xs font-semibold text-red-500">
                 刪除
             </button>
         </div>
@@ -118,11 +118,13 @@ export default {
         updatePost(){
             this.loaded = false;
             let formData = new FormData();
-            formData.append('title', this.title);
+            //formData.append('title', this.title);
+            formData.append('title', this.title ? this.title : '');
             formData.append('category_id', this.category_id);
             //formData.append('image', this.$refs.image.files[0]);
             formData.append('image', this.$refs.image.files[0] ? this.$refs.image.files[0] : '');
-            formData.append('content', this.content);
+            //formData.append('content', this.content);
+            formData.append('content', this.content ? this.content : '');
             formData.append('_method', 'PUT')
          
             axios.post('/api/posts/' + this.postId, formData).then((resp) => {

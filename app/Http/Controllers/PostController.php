@@ -39,13 +39,13 @@ class PostController extends Controller
 
     public function store(Request $request){
         $data = $request->validate([
-            'title' => 'required|string|max:100',
+            'title' => 'nullable|string|max:100',
             'category_id' => [
                 'required',
                 Rule::in(Category::query()->pluck('id')->toArray())
             ],
             'image' => 'nullable|image|max:1024',
-            'content' => 'required|string',
+            'content' => 'nullable|string',
         ]);
 
         $post = new Post($data);
@@ -75,13 +75,13 @@ class PostController extends Controller
 
     public function update(Request $request, $id){
         $data = $request->validate([
-            'title' => 'required|string|max:100',
+            'title' => 'nullable|string|max:100',
             'category_id' => [
                 'required',
                 Rule::in(Category::query()->pluck('id')->toArray())
             ],
             'image' => 'nullable|image|max:1024',
-            'content' => 'required|string',
+            'content' => 'nullable|string',
         ]);
 
         $post = Post::findOrFail($id);

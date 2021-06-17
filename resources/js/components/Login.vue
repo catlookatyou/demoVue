@@ -1,21 +1,21 @@
 <template>
     <div v-if="loaded" class="bg-white flex flex-col">
         <div class="mb-4">
-            <label class="block text-grey-darker text-xs font-bold mb-2">
+            <label class="block text-gray-900 text-xs font-semibold mb-2">
                 Email
             </label>
-            <input v-model="email" class="md:w-1/2 appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="email">
+            <input v-model="email" class="md:w-1/2 appearance-none border w-full text-gray-900 text-xs px-1 py-1" type="email">
             <error-msg v-if="errors.email" :error="errors.email"></error-msg>
         </div>
         <div class="mb-6">
-            <label class="block text-grey-darker text-xs font-bold mb-2">
+            <label class="block text-gray-900 text-xs font-semibold mb-2">
                 Password
             </label>
-            <input v-model="password" class="md:w-1/2 appearance-none border w-full text-grey-darker text-xs px-1 py-1" type="password">
+            <input v-model="password" class="md:w-1/2 appearance-none border w-full text-gray-900 text-xs px-1 py-1" type="password">
             <error-msg v-if="errors.password" :error="errors.password"></error-msg>
         </div>
         <div class="flex items-center justify-between">
-            <button @click="login" type="button" class="text-xs border px-4 py-2 font-bold">
+            <button @click="login" type="button" class="text-gray-900 text-xs border px-4 py-2 font-semibold">
                 登入
             </button>
         </div>
