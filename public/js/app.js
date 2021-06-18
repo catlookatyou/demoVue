@@ -2121,8 +2121,10 @@ __webpack_require__.r(__webpack_exports__);
 
       axios.get('/api/posts/' + id).then(function (resp) {
         _this.post = resp.data.data;
-        _this.title = _this.post.title;
-        _this.category_id = _this.post.category_id;
+        _this.title = _this.post.title; //const category = this.post.category;
+        //console.log('c:' + category);
+
+        _this.category_id = _this.post.category.id;
         _this.content = _this.post.content;
         _this.loaded = true;
       }).then(function (err) {//console.log('post: ' + err);
@@ -42507,10 +42509,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Title\n            ")]
+                [_vm._v("\n                標題\n            ")]
               ),
               _vm._v(" "),
               _c("input", {
@@ -42552,10 +42553,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Category\n            ")]
+                [_vm._v("\n                分類\n            ")]
               ),
               _vm._v(" "),
               _c(
@@ -42614,10 +42614,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Image\n            ")]
+                [_vm._v("\n                圖片\n            ")]
               ),
               _vm._v(" "),
               _c("input", {
@@ -42643,10 +42642,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Content\n            ")]
+                [_vm._v("\n                內容\n            ")]
               ),
               _vm._v(" "),
               _c("textarea", {
@@ -42913,10 +42911,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Title\n            ")]
+                [_vm._v("\n                標題\n            ")]
               ),
               _vm._v(" "),
               _c("input", {
@@ -42958,10 +42955,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Category\n            ")]
+                [_vm._v("\n                分類\n            ")]
               ),
               _vm._v(" "),
               _c(
@@ -43020,10 +43016,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Image\n            ")]
+                [_vm._v("\n                圖片\n            ")]
               ),
               _vm._v(" "),
               _c("input", {
@@ -43049,10 +43044,9 @@ var render = function() {
               _c(
                 "label",
                 {
-                  staticClass:
-                    "block uppercase text-gray-900 text-xs font-semibold mb-2"
+                  staticClass: "block text-gray-900 text-xs font-semibold mb-2"
                 },
-                [_vm._v("\n                Content\n            ")]
+                [_vm._v("\n                內容\n            ")]
               ),
               _vm._v(" "),
               _c("textarea", {
@@ -43265,9 +43259,11 @@ var render = function() {
                       }
                     },
                     [
-                      _c("p", { staticClass: "text-gray-900 text-xs" }, [
-                        _vm._v("編輯")
-                      ])
+                      _c(
+                        "p",
+                        { staticClass: "underline text-gray-900 text-xs" },
+                        [_vm._v("編輯")]
+                      )
                     ]
                   )
                 : _vm._e()

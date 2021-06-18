@@ -95,7 +95,8 @@ class PostController extends Controller
             unlink(storage_path($url));
         }
 
-        $post->fill($data);
+        //validate完後可用request啦
+        $post->fill($request->except('image'));
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');

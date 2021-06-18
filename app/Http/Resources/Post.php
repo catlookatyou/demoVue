@@ -22,7 +22,7 @@ class Post extends JsonResource
             'content' => $this->content, //empty($this->content) ? '' : Markdown::convertToHtml($this->content)
             'image' => $this->image,
             'author' => User::make($this->author),
-            'category' => Category::make($this->category),
+            'category' => Category::make($this->category), //{id and name}
             'created_at' => $this->created_at->format('Y-m-d')
         ];
     }
