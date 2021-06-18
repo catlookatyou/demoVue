@@ -2736,6 +2736,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['authenticated'],
   created: function created() {//this.checkAuthenticated();
@@ -2743,6 +2748,9 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     checkAuthenticated: function checkAuthenticated() {
       this.authenticated = localStorage.getItem('authenticated'); //console.log('auth: ' + localStorage.getItem('authenticated'));
+    },
+    navToggle: function navToggle() {
+      document.getElementById("navDiv").classList.toggle("hidden");
     }
   }
 });
@@ -42374,7 +42382,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", { staticClass: "text-red-500 font-semibold text-xs" }, [
+  return _c("h1", { staticClass: "text-gray-500 font-semibold text-xs" }, [
     _vm._v("About")
   ])
 }
@@ -42435,9 +42443,11 @@ var render = function() {
     ? _c(
         "div",
         [
-          _c("h1", { staticClass: "text-red-500 mb-8 text-xs font-semibold" }, [
-            _vm._v(_vm._s(_vm.name))
-          ]),
+          _c(
+            "h1",
+            { staticClass: "text-gray-500 mb-8 text-xs font-semibold" },
+            [_vm._v(_vm._s(_vm.name))]
+          ),
           _vm._v(" "),
           _vm.loaded
             ? _c("post-list", { attrs: { posts: _vm.posts } })
@@ -42721,7 +42731,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", { staticClass: "text-red-500 font-semibold text-xs" }, [
+  return _c("h1", { staticClass: "text-gray-500 font-semibold text-xs" }, [
     _vm._v("Home")
   ])
 }
@@ -43341,7 +43351,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container px-8" }, [
+  return _c("div", { staticClass: "container md:px-8" }, [
     _c(
       "main",
       { staticClass: "flex" },
@@ -43350,7 +43360,7 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "w-3/4 pt-12 py-4 ml-8" },
+          { staticClass: "px-4 py-4 md:w-3/4 md:pt-12 md:ml-8" },
           [_c("router-view")],
           1
         )
@@ -43382,11 +43392,31 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("aside", { staticClass: "w-1/4 pt-8" }, [
+  return _c("aside", { staticClass: "md:w-1/4 md:pt-8" }, [
     _c("section", { staticClass: "mb-10" }, [
       _c(
         "div",
-        { staticClass: "fixed flex flex-col text-gray-900 bg-transparent" },
+        {
+          staticClass:
+            "fixed flex flex-col rounded-full border border-gray-900 text-gray-900 h-8 w-8 md:hidden",
+          staticStyle: { top: "90%", right: "3%" }
+        },
+        [
+          _c(
+            "button",
+            { attrs: { id: "toggle" }, on: { click: _vm.navToggle } },
+            [_vm._v("\n                ...\n            ")]
+          )
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass:
+            "hidden fixed flex flex-col mt-2 text-gray-900 bg-transparent md:flex md:-mt-0 md:text-gray-500",
+          attrs: { id: "navDiv" }
+        },
         [
           _vm._m(0),
           _vm._v(" "),
@@ -43398,7 +43428,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs text-gray-500 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
                   attrs: { to: "/" }
                 },
                 [_vm._v("Home")]
@@ -43408,7 +43438,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs text-gray-500 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
                   attrs: {
                     to: { name: "category", params: { name: "作品1號" } }
                   }
@@ -43420,7 +43450,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs text-gray-500 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
                   attrs: {
                     to: { name: "category", params: { name: "作品2號" } }
                   }
@@ -43432,7 +43462,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs text-gray-500 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
                   attrs: {
                     to: { name: "category", params: { name: "作品3號" } }
                   }
@@ -43444,21 +43474,16 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs text-gray-500 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
                   attrs: { to: "/about" }
                 },
                 [_vm._v("About")]
               ),
               _vm._v(" "),
               _vm.authenticated
-                ? _c(
-                    "a",
-                    {
-                      staticClass:
-                        "text-gray-500 block px-4 pb-1.5 mt-8 text-xs"
-                    },
-                    [_vm._v("*adminMode")]
-                  )
+                ? _c("a", { staticClass: "block px-4 pb-1.5 mt-8 text-xs" }, [
+                    _vm._v("*adminMode")
+                  ])
                 : _vm._e(),
               _vm._v(" "),
               _vm.authenticated
@@ -43466,7 +43491,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 text-xs text-gray-500 bg-transparent focus:text-gray-900",
+                        "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
                       attrs: { to: "/new" }
                     },
                     [_vm._v("發布")]
@@ -43478,7 +43503,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 text-xs text-gray-500 bg-transparent focus:text-gray-900",
+                        "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
                       attrs: { to: "/adminLogout" }
                     },
                     [_vm._v("登出")]
@@ -43503,11 +43528,7 @@ var staticRenderFns = [
         staticClass:
           "flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between"
       },
-      [
-        _c("h1", { staticClass: "mb-4 text-xs text-gray-500" }, [
-          _vm._v("貓 Demo")
-        ])
-      ]
+      [_c("h1", { staticClass: "mb-4 text-xs" }, [_vm._v("貓 Demo")])]
     )
   }
 ]

@@ -1,6 +1,6 @@
 <template>
     <div v-if="loaded">
-        <h1 class="text-red-500 mb-8 text-xs font-semibold">{{ name }}</h1>
+        <h1 class="text-gray-500 mb-8 text-xs font-semibold">{{ name }}</h1>
         <post-list v-if="loaded" :posts="posts"></post-list>
     </div>
     <loading v-else></loading>

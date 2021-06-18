@@ -3,7 +3,7 @@
 </style>
 
 <template>
-    <h1 class="text-red-500 font-semibold text-xs">About</h1>
+    <h1 class="text-gray-500 font-semibold text-xs">About</h1>
 </template>
 
 <script>

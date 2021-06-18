@@ -1,10 +1,10 @@
 <template>
-    <div class="container px-8">
+    <div class="container md:px-8">
         <main class="flex">
             <!-- sidbar -->
             <navigation :authenticated="authenticated"></navigation>
             <!-- content -->
-            <div class="w-3/4 pt-12 py-4 ml-8">
+            <div class="px-4 py-4 md:w-3/4 md:pt-12 md:ml-8">
                 <!-- vue-router -->
                 <router-view></router-view>
             </div>
