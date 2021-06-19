@@ -28,11 +28,11 @@ class DevSeeder extends Seeder
             'password'=>bcrypt('12345678'),
         ])->create();
 
-        //創建三個分類
-        $cnames = ['作品1號', '作品2號', '作品3號'];
+        //創建分類
+        $cnames = ['Demo1', 'Demo2', 'Demo3', 'Demo4', 'Demo5'];
         foreach($cnames as $cname){
             $category = Category::factory(['name' => $cname])->create();
-            //每分類創建20篇文章
+            //每分類創建7篇文章
             Post::factory([
                 'category_id' => $category->id,
                 'user_id' => $user->id

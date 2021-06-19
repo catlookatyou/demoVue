@@ -4,22 +4,22 @@
             <!-- sidbar -->
             <navigation :authenticated="authenticated"></navigation>
             <!-- content -->
-            <div class="px-4 py-4 md:w-3/4 md:pt-12 md:ml-8">
+            <div class="px-4 py-4 w-full md:w-3/4 md:pt-12 md:ml-8">
                 <!-- vue-router -->
                 <router-view></router-view>
+                <!-- bottom -->
+                <bottom></bottom>
             </div>
         </main>
-        <!-- bottom -->
-        <!-- <bottom></bottom> -->
     </div>
 </template>
 
 <script>
 import Navigation from './Navigation';
-//import Bottom from './Bottom';
+import Bottom from './Bottom';
 
 export default {
-    components: {Navigation},
+    components: {Navigation, Bottom},
     data(){
         return{
             auth: false

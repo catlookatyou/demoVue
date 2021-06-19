@@ -1982,7 +1982,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     updateCategoryName: function updateCategoryName() {
-      this.name = this.$route.params.name.toUpperCase();
+      this.name = this.$route.params.name;
       this.loaded = false;
       this.getCategoryPosts();
     },
@@ -2652,6 +2652,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Navigation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Navigation */ "./resources/js/components/layout/Navigation.vue");
+/* harmony import */ var _Bottom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Bottom */ "./resources/js/components/layout/Bottom.vue");
 //
 //
 //
@@ -2668,11 +2669,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
- //import Bottom from './Bottom';
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    Navigation: _Navigation__WEBPACK_IMPORTED_MODULE_0__.default
+    Navigation: _Navigation__WEBPACK_IMPORTED_MODULE_0__.default,
+    Bottom: _Bottom__WEBPACK_IMPORTED_MODULE_1__.default
   },
   data: function data() {
     return {
@@ -2713,6 +2715,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
 //
 //
 //
@@ -41758,6 +41762,43 @@ component.options.__file = "resources/js/components/common/Loading.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/layout/Bottom.vue":
+/*!***************************************************!*\
+  !*** ./resources/js/components/layout/Bottom.vue ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Bottom_vue_vue_type_template_id_56cb46d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Bottom.vue?vue&type=template&id=56cb46d6& */ "./resources/js/components/layout/Bottom.vue?vue&type=template&id=56cb46d6&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__.default)(
+  script,
+  _Bottom_vue_vue_type_template_id_56cb46d6___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Bottom_vue_vue_type_template_id_56cb46d6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/layout/Bottom.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/layout/Layout.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/layout/Layout.vue ***!
@@ -42266,6 +42307,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/layout/Bottom.vue?vue&type=template&id=56cb46d6&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/layout/Bottom.vue?vue&type=template&id=56cb46d6& ***!
+  \**********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottom_vue_vue_type_template_id_56cb46d6___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottom_vue_vue_type_template_id_56cb46d6___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Bottom_vue_vue_type_template_id_56cb46d6___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./Bottom.vue?vue&type=template&id=56cb46d6& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/layout/Bottom.vue?vue&type=template&id=56cb46d6&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/layout/Layout.vue?vue&type=template&id=4d412614&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/layout/Layout.vue?vue&type=template&id=4d412614& ***!
@@ -42384,7 +42442,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", { staticClass: "text-gray-500 font-semibold text-xs" }, [
+  return _c("h1", { staticClass: "text-gray-200 font-semibold text-xs" }, [
     _vm._v("About")
   ])
 }
@@ -42447,7 +42505,7 @@ var render = function() {
         [
           _c(
             "h1",
-            { staticClass: "text-gray-500 mb-8 text-xs font-semibold" },
+            { staticClass: "text-gray-200 mb-8 text-xs font-semibold" },
             [_vm._v(_vm._s(_vm.name))]
           ),
           _vm._v(" "),
@@ -42729,8 +42787,8 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", { staticClass: "text-gray-500 font-semibold text-xs" }, [
-    _vm._v("Home")
+  return _c("h1", { staticClass: "text-gray-200 font-semibold text-xs" }, [
+    _vm._v("Index")
   ])
 }
 var staticRenderFns = []
@@ -43331,6 +43389,44 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/layout/Bottom.vue?vue&type=template&id=56cb46d6&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/layout/Bottom.vue?vue&type=template&id=56cb46d6& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "a",
+        { staticClass: "flex flex-col text-xs text-gray-200 text-center" },
+        [_vm._v("catlookatyou, 2021")]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/layout/Layout.vue?vue&type=template&id=4d412614&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/layout/Layout.vue?vue&type=template&id=4d412614& ***!
@@ -43356,8 +43452,8 @@ var render = function() {
         _vm._v(" "),
         _c(
           "div",
-          { staticClass: "px-4 py-4 md:w-3/4 md:pt-12 md:ml-8" },
-          [_c("router-view")],
+          { staticClass: "px-4 py-4 w-full md:w-3/4 md:pt-12 md:ml-8" },
+          [_c("router-view"), _vm._v(" "), _c("bottom")],
           1
         )
       ],
@@ -43410,7 +43506,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col mt-2 text-gray-900 bg-transparent md:flex md:-mt-0 md:text-gray-500",
+            "hidden fixed flex flex-col mt-2 text-gray-900 bg-transparent text-base md:flex md:-mt-0 md:text-xs md:text-gray-500",
           attrs: { id: "navDiv" }
         },
         [
@@ -43424,60 +43520,74 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
                   attrs: { to: "/" }
                 },
-                [_vm._v("Home")]
+                [_vm._v("Index")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
-                  attrs: {
-                    to: { name: "category", params: { name: "作品1號" } }
-                  }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                  attrs: { to: { name: "category", params: { name: "Demo1" } } }
                 },
-                [_vm._v("作品1號")]
+                [_vm._v("Demo 1")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
-                  attrs: {
-                    to: { name: "category", params: { name: "作品2號" } }
-                  }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                  attrs: { to: { name: "category", params: { name: "Demo2" } } }
                 },
-                [_vm._v("作品2號")]
+                [_vm._v("Demo 2")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
-                  attrs: {
-                    to: { name: "category", params: { name: "作品3號" } }
-                  }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                  attrs: { to: { name: "category", params: { name: "Demo3" } } }
                 },
-                [_vm._v("作品3號")]
+                [_vm._v("Demo 3")]
               ),
               _vm._v(" "),
               _c(
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                  attrs: { to: { name: "category", params: { name: "Demo4" } } }
+                },
+                [_vm._v("Demo 4")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass:
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                  attrs: { to: { name: "category", params: { name: "Demo5" } } }
+                },
+                [_vm._v("Demo 5")]
+              ),
+              _vm._v(" "),
+              _c(
+                "router-link",
+                {
+                  staticClass:
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
                   attrs: { to: "/about" }
                 },
                 [_vm._v("About")]
               ),
               _vm._v(" "),
               _vm.authenticated
-                ? _c("a", { staticClass: "block px-4 pb-1.5 mt-8 text-xs" }, [
+                ? _c("a", { staticClass: "block px-4 pb-1.5 mt-8" }, [
                     _vm._v("*adminMode")
                   ])
                 : _vm._e(),
@@ -43487,7 +43597,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
+                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
                       attrs: { to: "/new" }
                     },
                     [_vm._v("發布")]
@@ -43499,7 +43609,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 text-xs bg-transparent focus:text-gray-900",
+                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
                       attrs: { to: "/adminLogout" }
                     },
                     [_vm._v("登出")]
@@ -43524,7 +43634,7 @@ var staticRenderFns = [
         staticClass:
           "flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between"
       },
-      [_c("h1", { staticClass: "mb-4 text-xs" }, [_vm._v("貓 Demo")])]
+      [_c("h1", { staticClass: "mb-4" }, [_vm._v("貓 Demo")])]
     )
   }
 ]

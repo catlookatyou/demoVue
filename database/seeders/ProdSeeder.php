@@ -24,14 +24,20 @@ class ProdSeeder extends Seeder
         //categories
         DB::table('categories')->insert(
             [
-                'name' => '作品1號'
+                'name' => 'Demo1'
             ],
             [
-                'name' => '作品2號'
+                'name' => 'Demo2'
             ],
             [
-                'name' => '作品3號'
-            ]
+                'name' => 'Demo3'
+            ],
+            [
+                'name' => 'Demo4'
+            ],
+            [
+                'name' => 'Demo5'
+            ],
         );
     }
 }
