@@ -2266,6 +2266,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2279,6 +2282,7 @@ __webpack_require__.r(__webpack_exports__);
       password: '',
       submitted: false,
       loaded: true,
+      loginError: false,
       errors: ''
     };
   },
@@ -2306,10 +2310,16 @@ __webpack_require__.r(__webpack_exports__);
       formData.append('email', this.email);
       formData.append('password', this.password);
       axios.post('/adminLogin', formData).then(function (resp) {
-        //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
-        localStorage.setItem('authenticated', true); //首頁
+        if (resp.data.success === true) {
+          //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
+          localStorage.setItem('authenticated', true); //首頁
 
-        window.location.href = '/'; //this.$router.push('/');
+          window.location.href = '/'; //this.$router.push('/');
+        } else {
+          _this.loaded = true;
+          _this.loginError = true;
+          console.log("login failed!");
+        }
       })["catch"](function (err) {
         _this.loaded = true; //console.log('err = ' + JSON.stringify(err.response.data.errors));
 
@@ -42865,6 +42875,14 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _vm.loaded
     ? _c("div", { staticClass: "bg-white flex flex-col" }, [
+        _vm.loginError
+          ? _c("div", [
+              _c("a", { staticClass: "text-xs text-red-500 font-semibold" }, [
+                _vm._v("登入失敗!")
+              ])
+            ])
+          : _vm._e(),
+        _vm._v(" "),
         _c(
           "div",
           { staticClass: "mb-4" },

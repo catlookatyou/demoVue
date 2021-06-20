@@ -1,5 +1,8 @@
 <template>
     <div v-if="loaded" class="bg-white flex flex-col">
+        <div v-if="loginError">
+            <a class="text-xs text-red-500 font-semibold">登入失敗!</a>
+        </div>
         <div class="mb-4">
             <label class="block text-gray-900 text-xs font-semibold mb-2">
                 Email
@@ -34,6 +37,7 @@ export default {
             password: '',
             submitted: false,
             loaded: true,
+            loginError: false,
             errors: '',
         }
     },
@@ -60,11 +64,17 @@ export default {
             formData.append('email', this.email);
             formData.append('password', this.password);
             axios.post('/adminLogin', formData).then(resp => {
-                //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
-                localStorage.setItem('authenticated', true);
-                //首頁
-                window.location.href = '/';
-                //this.$router.push('/');
+                if (resp.data.success === true){
+                    //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
+                    localStorage.setItem('authenticated', true);
+                    //首頁
+                    window.location.href = '/';
+                    //this.$router.push('/');
+                }else{
+                    this.loaded = true;
+                    this.loginError = true;
+                    console.log("login failed!");
+                }
             }).catch(err => {
                 this.loaded = true;
                 //console.log('err = ' + JSON.stringify(err.response.data.errors));
