@@ -22,7 +22,7 @@ class ProdSeeder extends Seeder
         ]);
 
         //categories
-        DB::table('categories')->insert(
+        DB::table('categories')->insert([
             [
                 'name' => 'Demo1'
             ],
@@ -38,6 +38,6 @@ class ProdSeeder extends Seeder
             [
                 'name' => 'Demo5'
             ],
-        );
+        ]);
     }
 }
