@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Demo</title>
+        <title>卡路阿泥 Demo</title>
 
         <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
     </head>
