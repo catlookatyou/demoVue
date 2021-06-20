@@ -1,4 +1,5 @@
 <template>
+    <!--keep loading-->
     <loading></loading>
 </template>
 
