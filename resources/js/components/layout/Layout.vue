@@ -8,7 +8,7 @@
                 <!-- vue-router -->
                 <router-view></router-view>
                 <!-- bottom -->
-                <bottom></bottom>
+                <!--<bottom></bottom>-->
             </div>
         </main>
     </div>

@@ -1853,6 +1853,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -2197,6 +2209,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -7397,7 +7416,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\r\nh1{\r\n    color:#63bea8;\r\n}\r\n*/\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "h1{\n  color:#63bea8;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7421,7 +7440,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\r\nh1{\r\n    color:#63bea8;\r\n}\r\n*/\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "h1{\n  color:#63bea8;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7445,7 +7464,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/*\r\nh1{\r\n    color:#63bea8;\r\n}\r\n*/\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "h1{\n  color:#63bea8;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -42442,11 +42461,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", { staticClass: "text-gray-200 font-semibold text-xs" }, [
-    _vm._v("About")
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex flex-col" }, [
+      _c("div", { staticClass: "flex font-semibold text-xs" }, [
+        _c("h1", [_vm._v("About")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex flex-col mt-8 text-gray-900 text-xs" }, [
+        _c("a", [
+          _vm._v(
+            "\n            Larave + Vue + Tailwind 配青葉市子的歌，\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("a", [_vm._v("\n            by catlookatyou, 2021\n        ")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -42503,11 +42541,9 @@ var render = function() {
     ? _c(
         "div",
         [
-          _c(
-            "h1",
-            { staticClass: "text-gray-200 mb-8 text-xs font-semibold" },
-            [_vm._v(_vm._s(_vm.name))]
-          ),
+          _c("h1", { staticClass: "mb-8 text-xs font-semibold" }, [
+            _vm._v(_vm._s(_vm.name))
+          ]),
           _vm._v(" "),
           _vm.loaded
             ? _c("post-list", { attrs: { posts: _vm.posts } })
@@ -42787,11 +42823,24 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1", { staticClass: "text-gray-200 font-semibold text-xs" }, [
-    _vm._v("Index")
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "flex flex-col" }, [
+      _c("div", { staticClass: "flex font-semibold text-xs" }, [
+        _c("h1", [_vm._v("卡路阿泥 Demo")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex flex-col mt-8 text-gray-900 text-xs" }, [
+        _c("a", [_vm._v("這是一個Demo。")])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
@@ -43453,7 +43502,7 @@ var render = function() {
         _c(
           "div",
           { staticClass: "px-4 py-4 w-full md:w-3/4 md:pt-12 md:ml-8" },
-          [_c("router-view"), _vm._v(" "), _c("bottom")],
+          [_c("router-view")],
           1
         )
       ],
@@ -43506,12 +43555,10 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col mt-2 text-gray-900 bg-transparent text-base md:flex md:-mt-0 md:text-xs md:text-gray-500",
+            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base md:flex md:text-xs",
           attrs: { id: "navDiv" }
         },
         [
-          _vm._m(0),
-          _vm._v(" "),
           _c(
             "nav",
             { staticClass: "flex-grow overflow-y-auto", attrs: { id: "nav" } },
@@ -43520,7 +43567,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-8 bg-transparent focus:text-gray-900",
                   attrs: { to: "/" }
                 },
                 [_vm._v("Index")]
@@ -43623,21 +43670,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between"
-      },
-      [_c("h1", { staticClass: "mb-4" }, [_vm._v("貓 Demo")])]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -6,12 +6,12 @@
                     ...
                 </button>
             </div>
-            <div id="navDiv" class="hidden fixed flex flex-col mt-2 text-gray-900 bg-transparent text-base md:flex md:-mt-0 md:text-xs md:text-gray-500">
-                <div class="flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between">
-                    <h1 class="mb-4">貓 Demo</h1>
-                </div>
+            <div id="navDiv" class="hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base md:flex md:text-xs">
+                <!--<div class="flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between">
+                    <h1 class="mb-4">卡路阿泥 Demo</h1>
+                </div>-->
                 <nav id="nav" class="flex-grow overflow-y-auto">
-                    <router-link class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-900" to="/">Index</router-link>
+                    <router-link class="underline block px-4 pb-8 bg-transparent focus:text-gray-900" to="/">Index</router-link>
                     <!--<router-link class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-900" to="/all">All</router-link>-->
                     <router-link class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-900" :to="{ name: 'category', params: { name: 'Demo1' }}">Demo 1</router-link>
                     <router-link class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-900" :to="{ name: 'category', params: { name: 'Demo2' }}">Demo 2</router-link>
