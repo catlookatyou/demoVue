@@ -4,7 +4,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Resources\User as UserResource;
-use Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,17 +19,14 @@ use Auth;
     return $request->user();
 });*/
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
-    //return new UserResource($request->user());
-    return $request->user();
+    return new UserResource($request->user());
 });
-Route::middleware('auth')->get('/auth', function (Request $request){
-    return Auth::user();
-});
+
 //Post
 Route::get('/posts/categories', [PostController::class, 'categories']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::get('/posts/category/{name}', [PostController::class, 'category']);
-Route::post('/posts/store', [PostController::class, 'store'])->middleware('auth');  //auth:sanctum
-Route::put('/posts/{id}', [PostController::class, 'update'])->middleware('auth');
-Route::delete('/posts/{id}', [PostController::class, 'delete'])->middleware('auth');
+Route::post('/posts/store', [PostController::class, 'store']);  //->middleware('auth:sanctum')
+Route::put('/posts/{id}', [PostController::class, 'update']);
+Route::delete('/posts/{id}', [PostController::class, 'delete']);
