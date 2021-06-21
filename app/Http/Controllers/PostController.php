@@ -62,7 +62,7 @@ class PostController extends Controller
             $post->user_id = Auth::id();
             $post->save();
         }catch(\Exception $e){
-            return response()->json(['success' => false, 'message' => 'post failed!']);
+            return response()->json(['success' => false, 'message' => 'post failed!', 'error' => $e]);
         }
 
         return response()->json(['success' => true, 'message' => 'post success!']);
