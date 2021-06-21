@@ -10,6 +10,7 @@ use App\Http\Resources\Posts as PostCollection;
 use App\Http\Resources\Categories as CategoryCollection;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
+use Auth;
 
 class PostController extends Controller
 {
@@ -58,7 +59,7 @@ class PostController extends Controller
 
         //測試用戶發布文章
         try{
-            $post->user_id = 1;
+            $post->user_id = Auth::id();
             $post->save();
         }catch(\Exception $e){
             return response()->json(['success' => false, 'message' => 'post failed!']);
