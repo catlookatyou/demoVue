@@ -34,7 +34,7 @@
 export default {
     props: ['authenticated'],
     created(){
-        this.checkAuthenticated();
+        //this.checkAuthenticated();
     },
     methods: {
         checkAuthenticated(){
