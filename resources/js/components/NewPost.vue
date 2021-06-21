@@ -14,7 +14,7 @@
                 <label class="block text-gray-900 text-xs font-semibold mb-2">
                     分類
                 </label>
-                <select required v-model="category_id" class="appearance-none border w-full py-1 px-1 text-xs text-gray-900">
+                <select required v-model="category_id" class="appearance-none border w-full py-1 px-1 text-xs text-gray-900" style="background-color: white;">
                     <option v-for="category in categories" :key="category.id" :value="category.id">{{ category.name }}</option>
                 </select>
                 <error-msg v-if="errors.category_id" :error="errors.category_id"></error-msg>

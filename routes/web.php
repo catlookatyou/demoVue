@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Auth;
-use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +20,6 @@ Route::post('/adminLogout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
     return Auth::user();
 });
-Route::get('/posts/categories', [PostController::class, 'categories']);
 
 Route::get('/{any?}', function () {
     //return view('welcome');

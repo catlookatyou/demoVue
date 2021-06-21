@@ -21,6 +21,9 @@ use App\Http\Resources\User as UserResource;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
     return new UserResource($request->user());
 });
+Route::middleware('auth')->get('/auth', function (Request $request){
+    return new UserResource($request->user());
+});
 //Post
 Route::get('/posts/categories', [PostController::class, 'categories']);
 Route::get('/posts', [PostController::class, 'index']);
