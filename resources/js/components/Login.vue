@@ -67,9 +67,8 @@ export default {
                 if (resp.data.success === true){
                     //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
                     localStorage.setItem('authenticated', true);
-                    this.loadUserAuthenticated();
                     //首頁
-                    //window.location.href = '/';
+                    window.location.href = '/';
                     //this.$router.push('/');
                 }else{
                     this.loaded = true;
@@ -83,16 +82,6 @@ export default {
                 //console.log('login: ' + err);
             });
             this.submitted = true;
-        },
-        loadUserAuthenticated(){
-            axios.get('/api/user').then(resp => {
-                console.log(resp);
-                localStorage.setItem('authenticated', true);
-                //console.log('layout: ' + localStorage.getItem('authenticated'));
-            }).catch(err => {
-                console.log('loadUserAuthenticated: ' + err);
-            })
-            this.auth = localStorage.getItem('authenticated');
         }
     }
 }
