@@ -20,7 +20,8 @@ use Auth;
     return $request->user();
 });*/
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
-    return new UserResource($request->user());
+    //return new UserResource($request->user());
+    return $request->user();
 });
 Route::middleware('auth')->get('/auth', function (Request $request){
     return Auth::user();
