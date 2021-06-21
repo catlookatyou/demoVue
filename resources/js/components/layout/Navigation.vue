@@ -39,7 +39,7 @@ export default {
     methods: {
         checkAuthenticated(){
             this.authenticated = localStorage.getItem('authenticated');
-            //console.log('auth: ' + localStorage.getItem('authenticated'));
+            console.log('nav_auth: ' + localStorage.getItem('authenticated'));
         },
         navToggle(){
             document.getElementById("navDiv").classList.toggle("hidden");
