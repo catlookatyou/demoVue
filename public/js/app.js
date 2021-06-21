@@ -2312,9 +2312,12 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/adminLogin', formData).then(function (resp) {
         if (resp.data.success === true) {
           //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
-          localStorage.setItem('authenticated', true); //首頁
+          localStorage.setItem('authenticated', true);
 
-          window.location.href = '/'; //this.$router.push('/');
+          _this.loadUserAuthenticated(); //首頁
+          //window.location.href = '/';
+          //this.$router.push('/');
+
         } else {
           _this.loaded = true;
           _this.loginError = true;
@@ -2326,6 +2329,15 @@ __webpack_require__.r(__webpack_exports__);
         _this.errors = err.response.data.errors; //console.log('login: ' + err);
       });
       this.submitted = true;
+    },
+    loadUserAuthenticated: function loadUserAuthenticated() {
+      axios.get('/api/user').then(function (resp) {
+        console.log(resp);
+        localStorage.setItem('authenticated', true); //console.log('layout: ' + localStorage.getItem('authenticated'));
+      })["catch"](function (err) {
+        console.log('loadUserAuthenticated: ' + err);
+      });
+      this.auth = localStorage.getItem('authenticated');
     }
   }
 });
