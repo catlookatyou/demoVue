@@ -66,7 +66,7 @@ export default {
             axios.post('/adminLogin', formData).then(resp => {
                 if (resp.data.success === true){
                     //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
-                    localStorage.setItem('authenticated', true);
+                    //localStorage.setItem('authenticated', true);
                     //首頁
                     window.location.href = '/';
                     //this.$router.push('/');
