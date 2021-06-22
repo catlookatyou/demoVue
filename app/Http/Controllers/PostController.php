@@ -82,8 +82,8 @@ class PostController extends Controller
 
         //測試用戶發布文章
         try{
-            $post->user_id = Auth::guard('sanctum')->user()->id;
-            //$post->user_id = 1;
+            //$post->user_id = Auth::guard('sanctum')->user()->id;
+            $post->user_id = 1;
             $post->save();
         }catch(\Exception $e){
             return response()->json(['success' => false, 'message' => 'post failed!', 'error' => $e]);
