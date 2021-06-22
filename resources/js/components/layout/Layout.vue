@@ -2,7 +2,7 @@
     <div class="container md:px-8">
         <main class="flex">
             <!-- sidbar -->
-            <navigation :authenticated="authenticated"></navigation>
+            <navigation :authenticated="auth"></navigation>
             <!-- content -->
             <div class="px-4 py-4 w-full md:w-3/4 md:pt-12 md:ml-8">
                 <!-- vue-router -->
@@ -29,9 +29,9 @@ export default {
         this.loadUserAuthenticated();
     },
     computed: {
-        authenticated() {
+        /*authenticated() {
             return this.auth;
-        }
+        }*/
     },
     methods: {
         loadUserAuthenticated(){
@@ -44,6 +44,7 @@ export default {
                 console.log('loadUserAuthenticated: ' + err);
             })
             this.auth = localStorage.getItem('authenticated');
+            console.log('layout_this.auth: ' + this.auth);
         }
     }
 }
