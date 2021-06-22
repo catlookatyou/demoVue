@@ -28,6 +28,6 @@ Route::get('/posts/categories', [PostController::class, 'categories']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::get('/posts/category/{name}', [PostController::class, 'category']);
-Route::post('/posts/store', [PostController::class, 'store']);  //->middleware('auth:sanctum')
-Route::put('/posts/{id}', [PostController::class, 'update']);
-Route::delete('/posts/{id}', [PostController::class, 'delete']);
+Route::post('/posts/store', [PostController::class, 'store'])->middleware('auth:sanctum');  //->middleware('auth:sanctum')
+Route::put('/posts/{id}', [PostController::class, 'update'])->middleware('auth:sanctum');
+Route::delete('/posts/{id}', [PostController::class, 'delete'])->middleware('auth:sanctum');

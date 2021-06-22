@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request){
     return new UserResource(Auth::user());  //Auth::guard('web or sanctum')
 });
 Route::middleware('auth:web')->get('/testauth2', function (Request $request){
-    return Auth::user();
+    return Auth::guard('sanctum')->user();
 });
 Route::middleware('auth:api')->get('/testauth3', function (Request $request){
     return Auth::user();
