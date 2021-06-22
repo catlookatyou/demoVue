@@ -20,6 +20,12 @@ Route::post('/adminLogout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
     return Auth::user();
 });
+Route::middleware('auth:web')->get('/testauth2', function (Request $request){
+    return Auth::user();
+});
+Route::middleware('auth:api')->get('/testauth3', function (Request $request){
+    return Auth::user();
+});
 
 Route::get('/{any?}', function () {
     //return view('welcome');
