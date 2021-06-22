@@ -40,7 +40,7 @@ export default {
                 localStorage.setItem('authenticated', true);
                 //console.log('auth: ' + localStorage.getItem('authenticated'));
             }).catch(err => {
-                localStorage.setItem('authenticated', false);
+                localStorage.removeItem('authenticated');
                 console.log('loadUserAuthenticated: ' + err);
             })
             this.auth = localStorage.getItem('authenticated');
