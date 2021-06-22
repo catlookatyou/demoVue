@@ -2722,9 +2722,10 @@ __webpack_require__.r(__webpack_exports__);
     loadUserAuthenticated: function loadUserAuthenticated() {
       var _this = this;
 
-      axios.get('/api/user', {
+      axios.get('/user', {
         withCredentials: true
       }).then(function (resp) {
+        // /api/user
         console.log(resp);
         localStorage.setItem('authenticated', true); //console.log('layout_auth: ' + localStorage.getItem('authenticated'));
 
@@ -42494,7 +42495,7 @@ var staticRenderFns = [
         _c("h1", [_vm._v("About")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex flex-col mt-8 text-gray-900 text-xs" }, [
+      _c("div", { staticClass: "flex flex-col mt-8 text-gray-300 text-xs" }, [
         _c("a", [
           _vm._v(
             "\n            Larave + Vue + Tailwind 配青葉市子的歌，\n        "
@@ -42857,7 +42858,7 @@ var staticRenderFns = [
         _c("h1", [_vm._v("卡路阿泥 Demo")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex flex-col mt-8 text-gray-900 text-xs" }, [
+      _c("div", { staticClass: "flex flex-col mt-8 text-gray-300 text-xs" }, [
         _c("a", [_vm._v("這是一個Demo。")])
       ])
     ])
@@ -43454,10 +43455,14 @@ var staticRenderFns = [
           "span",
           {
             staticClass:
-              "text-gray-500 top-1/2 my-0 mx-auto block relative w-0 h-0",
+              "text-gray-500 top-1/2 right-4 my-0 mx-auto block relative w-0 h-0",
             staticStyle: { top: "50%" }
           },
-          [_c("i", { staticClass: "text-sm" }, [_vm._v("loading...")])]
+          [
+            _c("i", { staticClass: "text-sm animate-pulse" }, [
+              _vm._v("loading...")
+            ])
+          ]
         )
       ]
     )
@@ -43570,14 +43575,18 @@ var render = function() {
         "div",
         {
           staticClass:
-            "fixed flex flex-col rounded-full border border-gray-900 text-gray-900 h-8 w-8 md:hidden",
-          staticStyle: { top: "90%", right: "3%" }
+            "fixed flex flex-col rounded-full text-2xl border-gray-900 text-gray-300 h-8 w-8 md:hidden",
+          staticStyle: { bottom: "3%", right: "3%" }
         },
         [
           _c(
-            "button",
-            { attrs: { id: "toggle" }, on: { click: _vm.navToggle } },
-            [_vm._v("\n                ...\n            ")]
+            "a",
+            {
+              staticClass: "text-center",
+              attrs: { id: "toggle" },
+              on: { click: _vm.navToggle }
+            },
+            [_vm._v("\n                ☰\n            ")]
           )
         ]
       ),
@@ -43586,7 +43595,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base md:flex md:text-xs",
+            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs",
           attrs: { id: "navDiv" }
         },
         [
