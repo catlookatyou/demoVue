@@ -39,12 +39,14 @@ export default {
                 console.log(resp);
                 localStorage.setItem('authenticated', true);
                 console.log('layout_auth: ' + localStorage.getItem('authenticated'));
+                this.auth = localStorage.getItem('authenticated');
+                console.log('layout_this.auth: ' + this.auth);
             }).catch(err => {
                 localStorage.removeItem('authenticated');
                 console.log('loadUserAuthenticated: ' + err);
+                this.auth = localStorage.getItem('authenticated');
+                console.log('layout_this.auth: ' + this.auth);
             })
-            this.auth = localStorage.getItem('authenticated');
-            console.log('layout_this.auth: ' + this.auth);
         }
     }
 }
