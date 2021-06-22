@@ -112,7 +112,7 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
 
         //delete original image
-        if($request->hasFile('image')){
+        if($request->hasFile('image') && $post->image){  //更新時請求有image，且原本有圖片時才刪除
             //cut '/storage/' and add full url
             /*
             $url = substr($post->image, 9);
