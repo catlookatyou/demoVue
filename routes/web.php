@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Resources\User as UserResource;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,8 @@ use Illuminate\Support\Facades\Auth;
 Route::post('/adminLogin', [AuthController::class, 'login'])->name('login');
 Route::post('/adminLogout', [AuthController::class, 'logout'])->name('logout');
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
-    return Auth::user();
+    //return Auth::user();
+    return new UserResource(Auth::user());  //Auth::guard('web or sanctum')
 });
 Route::middleware('auth:web')->get('/testauth2', function (Request $request){
     return Auth::user();

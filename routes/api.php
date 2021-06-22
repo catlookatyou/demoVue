@@ -22,21 +22,12 @@ use Illuminate\Support\Facades\Auth;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request){
     return new UserResource($request->user());
 });
-Route::middleware('auth:sanctum')->get('/testauth', function (Request $request){
-    return Auth::user();
-});
-Route::middleware('auth:web')->get('/testauth2', function (Request $request){
-    return Auth::user();
-});
-Route::middleware('auth:api')->get('/testauth3', function (Request $request){
-    return Auth::user();
-});
 
 //Post
 Route::get('/posts/categories', [PostController::class, 'categories']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::get('/posts/category/{name}', [PostController::class, 'category']);
-Route::post('/posts/store', [PostController::class, 'store'])->middleware('auth:sanctum');  //->middleware('auth:sanctum')
-Route::put('/posts/{id}', [PostController::class, 'update'])->middleware('auth:sanctum');
-Route::delete('/posts/{id}', [PostController::class, 'delete'])->middleware('auth:sanctum');
+Route::post('/posts/store', [PostController::class, 'store']);  //->middleware('auth:sanctum')
+Route::put('/posts/{id}', [PostController::class, 'update']);
+Route::delete('/posts/{id}', [PostController::class, 'delete']);

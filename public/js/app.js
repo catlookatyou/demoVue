@@ -2312,8 +2312,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/adminLogin', formData).then(function (resp) {
         if (resp.data.success === true) {
           //儲存登入狀態到localStorage，以便在前端路由識別登入狀態
-          localStorage.setItem('authenticated', true); //首頁
-
+          //localStorage.setItem('authenticated', true);
+          //首頁
           window.location.href = '/'; //this.$router.push('/');
         } else {
           _this.loaded = true;
@@ -2640,7 +2640,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['post', 'authenticated'],
   created: function created() {
     //covert markdown to html
-    this.post.content = marked__WEBPACK_IMPORTED_MODULE_0___default()(this.post.content);
+    if (this.post.content) this.post.content = marked__WEBPACK_IMPORTED_MODULE_0___default()(this.post.content);
   }
 });
 
@@ -2714,21 +2714,26 @@ __webpack_require__.r(__webpack_exports__);
     this.loadUserAuthenticated();
   },
   computed: {
-    authenticated: function authenticated() {
-      return this.auth;
-    }
+    /*authenticated() {
+        return this.auth;
+    }*/
   },
   methods: {
     loadUserAuthenticated: function loadUserAuthenticated() {
+      var _this = this;
+
       axios.get('/api/user', {
         withCredentials: true
       }).then(function (resp) {
         console.log(resp);
-        localStorage.setItem('authenticated', true); //console.log('layout: ' + localStorage.getItem('authenticated'));
+        localStorage.setItem('authenticated', true); //console.log('layout_auth: ' + localStorage.getItem('authenticated'));
+
+        _this.auth = localStorage.getItem('authenticated'); //console.log('layout_this.auth: ' + this.auth);
       })["catch"](function (err) {
+        localStorage.removeItem('authenticated');
         console.log('loadUserAuthenticated: ' + err);
+        _this.auth = localStorage.getItem('authenticated'); //console.log('layout_this.auth: ' + this.auth);
       });
-      this.auth = localStorage.getItem('authenticated');
     }
   }
 });
@@ -2780,11 +2785,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['authenticated'],
-  created: function created() {//this.checkAuthenticated();
+  created: function created() {
+    this.checkAuthenticated();
   },
   methods: {
     checkAuthenticated: function checkAuthenticated() {
-      this.authenticated = localStorage.getItem('authenticated'); //console.log('auth: ' + localStorage.getItem('authenticated'));
+      this.authenticated = localStorage.getItem('authenticated'); //console.log('nav_prop: ' + this.authenticated);
+      //console.log('nav_auth: ' + localStorage.getItem('authenticated'));
     },
     navToggle: function navToggle() {
       document.getElementById("navDiv").classList.toggle("hidden");
@@ -42679,6 +42686,7 @@ var render = function() {
                   ],
                   staticClass:
                     "appearance-none border w-full py-1 px-1 text-xs text-gray-900",
+                  staticStyle: { "background-color": "white" },
                   attrs: { required: "" },
                   on: {
                     change: function($event) {
@@ -43102,6 +43110,7 @@ var render = function() {
                   ],
                   staticClass:
                     "appearance-none border w-full py-1 px-1 text-xs text-gray-900",
+                  staticStyle: { "background-color": "white" },
                   attrs: { required: "" },
                   on: {
                     change: function($event) {
@@ -43519,7 +43528,7 @@ var render = function() {
       "main",
       { staticClass: "flex" },
       [
-        _c("navigation", { attrs: { authenticated: _vm.authenticated } }),
+        _c("navigation", { attrs: { authenticated: _vm.auth } }),
         _vm._v(" "),
         _c(
           "div",
