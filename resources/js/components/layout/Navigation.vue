@@ -6,7 +6,7 @@
                     ☰
                 </a>
             </div>
-            <div id="navDiv" class="hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs">
+            <div id="navDiv" class="hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6">
                 <!--<div class="flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between">
                     <h1 class="mb-4">卡路阿泥 Demo</h1>
                 </div>-->

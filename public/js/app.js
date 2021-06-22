@@ -43595,7 +43595,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs",
+            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6",
           attrs: { id: "navDiv" }
         },
         [
