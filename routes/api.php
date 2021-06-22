@@ -25,6 +25,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request){
 Route::middleware('auth:sanctum')->get('/testauth', function (Request $request){
     return Auth::user();
 });
+Route::middleware('auth:web')->get('/testauth2', function (Request $request){
+    return Auth::user();
+});
+Route::middleware('auth:api')->get('/testauth3', function (Request $request){
+    return Auth::user();
+});
 
 //Post
 Route::get('/posts/categories', [PostController::class, 'categories']);
