@@ -35,7 +35,8 @@ export default {
     props: ['post', 'authenticated'],
     created(){
         //covert markdown to html
-        this.post.content = marked(this.post.content);
+        if(this.post.content)
+            this.post.content = marked(this.post.content);
     }
 }
 </script>
