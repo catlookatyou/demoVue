@@ -1,7 +1,7 @@
 <template>
     <aside class="md:w-1/4 md:pt-8">
         <section class="mb-10">
-            <div class="fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-300 h-8 w-8 md:hidden" style="bottom:3%; right:3%">
+            <div class="fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-200 h-8 w-8 md:hidden" style="bottom:3%; right:3%">
                 <a @click="navToggle" id="toggle" class="text-center"> <!-- border -->
                     ☰
                 </a>
