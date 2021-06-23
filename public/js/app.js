@@ -43581,7 +43581,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-200 h-8 w-8 md:hidden",
+            "fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-200 h-8 w-8 z-50 md:hidden",
           staticStyle: { bottom: "3%", right: "3%" }
         },
         [
@@ -43601,7 +43601,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col text-gray-300 bg-black opacity-75 w-full h-full text-base md:bg-transparent md:opacity-50 md:w-1/6 md:h-full md:flex md:text-xs",
+            "hidden fixed flex flex-col text-gray-300 bg-black opacity-75 w-full h-full text-base md:text-gray-900 md:bg-transparent md:opacity-50 md:w-1/6 md:h-full md:flex md:text-xs",
           attrs: { id: "navDiv" }
         },
         [
@@ -43613,8 +43613,13 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block mt-4 px-4 pb-8 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                  attrs: { to: "/" }
+                    "underline block mt-4 px-4 pb-8 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                  attrs: { to: "/" },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.navToggle.apply(null, arguments)
+                    }
+                  }
                 },
                 [_vm._v("Index")]
               ),
@@ -43623,8 +43628,15 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                  attrs: { to: { name: "category", params: { name: "Demo1" } } }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                  attrs: {
+                    to: { name: "category", params: { name: "Demo1" } }
+                  },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.navToggle.apply(null, arguments)
+                    }
+                  }
                 },
                 [_vm._v("Demo 1")]
               ),
@@ -43633,8 +43645,15 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                  attrs: { to: { name: "category", params: { name: "Demo2" } } }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                  attrs: {
+                    to: { name: "category", params: { name: "Demo2" } }
+                  },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.navToggle.apply(null, arguments)
+                    }
+                  }
                 },
                 [_vm._v("Demo 2")]
               ),
@@ -43643,8 +43662,15 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                  attrs: { to: { name: "category", params: { name: "Demo3" } } }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                  attrs: {
+                    to: { name: "category", params: { name: "Demo3" } }
+                  },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.navToggle.apply(null, arguments)
+                    }
+                  }
                 },
                 [_vm._v("Demo 3")]
               ),
@@ -43653,8 +43679,15 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                  attrs: { to: { name: "category", params: { name: "Demo4" } } }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                  attrs: {
+                    to: { name: "category", params: { name: "Demo4" } }
+                  },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.navToggle.apply(null, arguments)
+                    }
+                  }
                 },
                 [_vm._v("Demo 4")]
               ),
@@ -43663,8 +43696,15 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                  attrs: { to: { name: "category", params: { name: "Demo5" } } }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                  attrs: {
+                    to: { name: "category", params: { name: "Demo5" } }
+                  },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.navToggle.apply(null, arguments)
+                    }
+                  }
                 },
                 [_vm._v("Demo 5")]
               ),
@@ -43673,8 +43713,13 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                  attrs: { to: "/about" }
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                  attrs: { to: "/about" },
+                  nativeOn: {
+                    click: function($event) {
+                      return _vm.navToggle.apply(null, arguments)
+                    }
+                  }
                 },
                 [_vm._v("About")]
               ),
@@ -43690,8 +43735,13 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                      attrs: { to: "/new" }
+                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                      attrs: { to: "/new" },
+                      nativeOn: {
+                        click: function($event) {
+                          return _vm.navToggle.apply(null, arguments)
+                        }
+                      }
                     },
                     [_vm._v("發布")]
                   )
@@ -43702,8 +43752,13 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
-                      attrs: { to: "/adminLogout" }
+                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
+                      attrs: { to: "/adminLogout" },
+                      nativeOn: {
+                        click: function($event) {
+                          return _vm.navToggle.apply(null, arguments)
+                        }
+                      }
                     },
                     [_vm._v("登出")]
                   )
