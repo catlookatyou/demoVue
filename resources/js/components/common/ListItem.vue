@@ -13,7 +13,7 @@
                 <!--<p class="text-gray-900 text-base">
                     {{ post.content }}
                 </p>-->
-                <div v-if="post.content" v-html="post.content" class="text-xs text-gray-500"></div>
+                <div v-if="post.content" v-html="post.content" class="font-light text-xs text-gray-500"></div>
             </div>
             <div class="flex mt-2">
                 <!--<img :src="post.author.avatar_url" class="h-10 w-10 rounded-full mr-2 object-cover" />-->

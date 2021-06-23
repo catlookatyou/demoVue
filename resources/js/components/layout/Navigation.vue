@@ -1,12 +1,13 @@
 <template>
     <aside class="md:w-1/4 md:pt-8">
         <section class="mb-10">
-            <div class="fixed flex flex-col rounded-full text-2xl border-gray-900 text-gray-300 h-8 w-8 md:hidden" style="bottom:3%; right:3%">
+            <div class="fixed flex flex-col rounded-full text-3xl border-gray-900 text-gray-300 h-8 w-8 md:hidden" style="bottom:3%; right:3%">
                 <a @click="navToggle" id="toggle" class="text-center"> <!-- border -->
                     ☰
                 </a>
             </div>
-            <div id="navDiv" class="hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6">
+            <div id="navDiv" class="hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6
+            ">
                 <!--<div class="flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between">
                     <h1 class="mb-4">卡路阿泥 Demo</h1>
                 </div>-->

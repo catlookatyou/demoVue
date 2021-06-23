@@ -2784,6 +2784,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['authenticated'],
   created: function created() {
@@ -42495,15 +42496,19 @@ var staticRenderFns = [
         _c("h1", [_vm._v("About")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex flex-col mt-8 text-gray-300 text-xs" }, [
-        _c("a", [
-          _vm._v(
-            "\n            Larave + Vue + Tailwind 配青葉市子的歌，\n        "
-          )
-        ]),
-        _vm._v(" "),
-        _c("a", [_vm._v("\n            by catlookatyou, 2021\n        ")])
-      ])
+      _c(
+        "div",
+        { staticClass: "flex flex-col mt-8 font-light text-gray-300 text-xs" },
+        [
+          _c("a", [
+            _vm._v(
+              "\n            Larave + Vue + Tailwind 配青葉市子的歌，\n        "
+            )
+          ]),
+          _vm._v(" "),
+          _c("a", [_vm._v("\n            by catlookatyou, 2021\n        ")])
+        ]
+      )
     ])
   }
 ]
@@ -42858,9 +42863,11 @@ var staticRenderFns = [
         _c("h1", [_vm._v("卡路阿泥 Demo")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "flex flex-col mt-8 text-gray-300 text-xs" }, [
-        _c("a", [_vm._v("這是一個Demo。")])
-      ])
+      _c(
+        "div",
+        { staticClass: "flex flex-col mt-8 font-light text-gray-300 text-xs" },
+        [_c("a", [_vm._v("這是一個Demo。")])]
+      )
     ])
   }
 ]
@@ -43379,7 +43386,7 @@ var render = function() {
           _vm._v(" "),
           _vm.post.content
             ? _c("div", {
-                staticClass: "text-xs text-gray-500",
+                staticClass: "font-light text-xs text-gray-500",
                 domProps: { innerHTML: _vm._s(_vm.post.content) }
               })
             : _vm._e()
@@ -43575,7 +43582,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "fixed flex flex-col rounded-full text-2xl border-gray-900 text-gray-300 h-8 w-8 md:hidden",
+            "fixed flex flex-col rounded-full text-3xl border-gray-900 text-gray-300 h-8 w-8 md:hidden",
           staticStyle: { bottom: "3%", right: "3%" }
         },
         [
@@ -43595,7 +43602,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6",
+            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-xl text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6\n        ",
           attrs: { id: "navDiv" }
         },
         [
