@@ -1,18 +1,17 @@
 <template>
     <aside class="md:w-1/4 md:pt-8">
         <section class="mb-10">
-            <div class="fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-200 h-8 w-8 md:hidden" style="bottom:3%; right:3%">
+            <div class="fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-200 h-8 w-8 z-50 md:hidden" style="bottom:3%; right:3%">
                 <a @click="navToggle" id="toggle" class="text-center"> <!-- border -->
                     ☰
                 </a>
             </div>
-            <div id="navDiv" class="hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6
-            ">
+            <div id="navDiv" class="hidden fixed flex flex-col text-gray-300 bg-black opacity-75 w-full h-full text-base md:bg-transparent md:opacity-50 md:w-1/6 md:h-full md:flex md:text-xs">
                 <!--<div class="flex-shrink-0 px-4 py-4 flex flex-row items-center justify-between">
                     <h1 class="mb-4">卡路阿泥 Demo</h1>
                 </div>-->
                 <nav id="nav" class="flex-grow overflow-y-auto">
-                    <router-link class="underline block px-4 pb-8 bg-transparent focus:text-gray-900 md:hover:text-gray-900" to="/">Index</router-link>
+                    <router-link class="underline block mt-4 px-4 pb-8 bg-transparent focus:text-gray-900 md:hover:text-gray-900" to="/">Index</router-link>
                     <!--<router-link class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900" to="/all">All</router-link>-->
                     <router-link class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900" :to="{ name: 'category', params: { name: 'Demo1' }}">Demo 1</router-link>
                     <router-link class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900" :to="{ name: 'category', params: { name: 'Demo2' }}">Demo 2</router-link>

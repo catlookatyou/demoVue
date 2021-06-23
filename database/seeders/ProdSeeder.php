@@ -39,5 +39,8 @@ class ProdSeeder extends Seeder
                 'name' => 'Demo5'
             ],
         ]);
+
+        //posts
+        $this->call(PostsSeeder::class);
     }
 }

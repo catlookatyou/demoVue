@@ -2784,7 +2784,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['authenticated'],
   created: function created() {
@@ -43582,7 +43581,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-300 h-8 w-8 md:hidden",
+            "fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-200 h-8 w-8 md:hidden",
           staticStyle: { bottom: "3%", right: "3%" }
         },
         [
@@ -43602,7 +43601,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6\n        ",
+            "hidden fixed flex flex-col text-gray-300 bg-black opacity-75 w-full h-full text-base md:bg-transparent md:opacity-50 md:w-1/6 md:h-full md:flex md:text-xs",
           attrs: { id: "navDiv" }
         },
         [
@@ -43614,7 +43613,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-8 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
+                    "underline block mt-4 px-4 pb-8 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: "/" }
                 },
                 [_vm._v("Index")]
