@@ -43582,7 +43582,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "fixed flex flex-col rounded-full text-3xl border-gray-900 text-gray-300 h-8 w-8 md:hidden",
+            "fixed flex flex-col rounded-full text-4xl border-gray-900 text-gray-300 h-8 w-8 md:hidden",
           staticStyle: { bottom: "3%", right: "3%" }
         },
         [
@@ -43602,7 +43602,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-xl text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6\n        ",
+            "hidden fixed flex flex-col mt-4 text-gray-300 bg-transparent text-base text-right right-0 md:text-left md:left-8 md:flex md:text-xs md:w-1/6\n        ",
           attrs: { id: "navDiv" }
         },
         [
@@ -43614,7 +43614,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-8 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-8 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: "/" }
                 },
                 [_vm._v("Index")]
@@ -43624,7 +43624,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: { name: "category", params: { name: "Demo1" } } }
                 },
                 [_vm._v("Demo 1")]
@@ -43634,7 +43634,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: { name: "category", params: { name: "Demo2" } } }
                 },
                 [_vm._v("Demo 2")]
@@ -43644,7 +43644,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: { name: "category", params: { name: "Demo3" } } }
                 },
                 [_vm._v("Demo 3")]
@@ -43654,7 +43654,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: { name: "category", params: { name: "Demo4" } } }
                 },
                 [_vm._v("Demo 4")]
@@ -43664,7 +43664,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: { name: "category", params: { name: "Demo5" } } }
                 },
                 [_vm._v("Demo 5")]
@@ -43674,7 +43674,7 @@ var render = function() {
                 "router-link",
                 {
                   staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                   attrs: { to: "/about" }
                 },
                 [_vm._v("About")]
@@ -43691,7 +43691,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                       attrs: { to: "/new" }
                     },
                     [_vm._v("發布")]
@@ -43703,7 +43703,7 @@ var render = function() {
                     "router-link",
                     {
                       staticClass:
-                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900",
+                        "underline block px-4 pb-1.5 bg-transparent focus:text-gray-900 md:hover:text-gray-900",
                       attrs: { to: "/adminLogout" }
                     },
                     [_vm._v("登出")]
