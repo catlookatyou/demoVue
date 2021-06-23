@@ -55,16 +55,16 @@ class PostController extends Controller
 
         if ($request->hasFile('image')) {
             //store in storage link
-            /*
+            
             $image = $request->file('image');
             $local_path = $image->storePublicly('images', ['disk' => 'public']);
             $post->image = '/storage/' . $local_path;
-            */
+            
 
             //--------------------------------------------------------------------
 
             //store in public/images
-            
+            /*
             $file = $request->file('image');
             $destPath = 'images';
             //make dir
@@ -77,7 +77,7 @@ class PostController extends Controller
             $file->move(public_path() . '/' . $destPath, $fileName);
             //save
             $post->image = '/' . $destPath . '/' . $fileName;
-        
+            */
         }
 
         //測試用戶發布文章
@@ -114,30 +114,30 @@ class PostController extends Controller
         //delete original image
         if($request->hasFile('image') && $post->image){  //更新時請求有image，且原本有圖片時才刪除
             //cut '/storage/' and add full url
-            /*
+            
             $url = substr($post->image, 9);
             $url = 'app/public/'.$url;
-            */
+            
 
-            $url = public_path() . $post->image;
+            //$url = public_path() . $post->image;
             //delete
-            //unlink(storage_path($url));
-            unlink($url);
+            unlink(storage_path($url));
+            //unlink($url);
         }
 
         //validate完後可用request啦
         $post->fill($request->except('image'));
 
         if ($request->hasFile('image')) {
-            /*
+            
             $image = $request->file('image');
             $local_path = $image->storePublicly('images', ['disk' => 'public']);
             $post->image = '/storage/' . $local_path;
-            */
+            
             //--------------------------------------------------------------------
 
             //store in public/images
-            
+            /*
             $file = $request->file('image');
             $destPath = 'images';
             //make dir
@@ -150,6 +150,7 @@ class PostController extends Controller
             $file->move(public_path() . '/' . $destPath, $fileName);
             //save
             $post->image = '/' . $destPath . '/' . $fileName;
+            */
         }
 
         if ($post->save()){
@@ -163,7 +164,7 @@ class PostController extends Controller
 
         //delete image
         if($post->image){
-            /*
+            
             //check if file exist
             $url = substr($post->image, 9);
             $exists = Storage::disk('public')->has($url);
@@ -174,9 +175,9 @@ class PostController extends Controller
                 //delete
                 unlink(storage_path($url));
             }
-            */
-            $url = public_path() . $post->image;
-            unlink($url);
+            
+            //$url = public_path() . $post->image;
+            //unlink($url);
         }
         
         if ($post->delete()){
