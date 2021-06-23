@@ -2102,6 +2102,7 @@ __webpack_require__.r(__webpack_exports__);
       post: null,
       loaded: false,
       categories: [],
+      image: '',
       title: '',
       category_id: '',
       content: '',
@@ -2132,7 +2133,11 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.get('/api/posts/' + id).then(function (resp) {
-        _this.post = resp.data.data;
+        _this.post = resp.data.data; //image
+
+        var url = window.location.origin;
+        _this.image = url + '/' + _this.post.image;
+        console.log('image:' + _this.image);
         _this.title = _this.post.title; //const category = this.post.category;
         //console.log('c:' + category);
 
@@ -42612,11 +42617,11 @@ var render = function() {
               [_vm._v(" " + _vm._s(_vm.post.created_at) + " ")]
             ),
             _vm._v(" "),
-            _vm.post.image
+            _vm.image
               ? _c("div", [
                   _c("img", {
                     staticClass: "object-contain w-auto h-auto mb-2",
-                    attrs: { src: _vm.post.image, title: _vm.post.title }
+                    attrs: { src: _vm.image, title: _vm.post.title }
                   })
                 ])
               : _vm._e()

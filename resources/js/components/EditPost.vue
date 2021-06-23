@@ -3,8 +3,8 @@
         <div class="flex flex-wrap -mx-3 mb-6">
             <div class="w-full px-3">
                 <p class="text-gray-900 font-semibold text-xs mb-2"> {{ post.created_at }} </p>
-                <div v-if="post.image">
-                    <img :src="post.image" :title="post.title" class="object-contain w-auto h-auto mb-2" />
+                <div v-if="image">
+                    <img :src="image" :title="post.title" class="object-contain w-auto h-auto mb-2" />
                 </div>
             </div>
             <div class="w-full px-3 md:w-1/2 ">
@@ -72,6 +72,7 @@ export default {
             post: null,
             loaded: false,
             categories:[],
+            image: '',
             title: '',
             category_id: '',
             content: '',
@@ -100,6 +101,11 @@ export default {
         getPostData(id){
             axios.get('/api/posts/' + id).then((resp) => {
                 this.post = resp.data.data;
+                //image
+                var url = window.location.origin;
+                this.image = url + '/' + this.post.image;
+                console.log('image:' + this.image);
+
                 this.title = this.post.title;
                 //const category = this.post.category;
                 //console.log('c:' + category);
