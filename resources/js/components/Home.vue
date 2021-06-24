@@ -8,7 +8,7 @@
             <h1>卡路阿泥 Demo</h1>
         </div>
         <div class="flex flex-col mt-8 font-light text-gray-300 text-xs">
-            <a>這是一個Demo。</a>
+            <a>這是一個實驗的 / Demo。</a>
         </div>
     </div>
 </template>
