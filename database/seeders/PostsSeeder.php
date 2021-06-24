@@ -37,6 +37,12 @@ class PostsSeeder extends Seeder
             [
                 'category_id' => 2,
                 'user_id' => 1,
+                'image' => "images//fish.jpg",
+                'created_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'category_id' => 2,
+                'user_id' => 1,
                 'image' => "images//2-3.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
@@ -52,18 +58,27 @@ class PostsSeeder extends Seeder
                 'image' => "images//2-5.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
+            //category 3
             [
-                'category_id' => 2,
+                'category_id' => 3,
                 'user_id' => 1,
-                'image' => "images//2-6.jpg",
+                'image' => "images//day.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
             [
-                'category_id' => 2,
+                'category_id' => 3,
                 'user_id' => 1,
-                'image' => "images//2-7.jpg",
+                'image' => "images//night.jpg",
                 'created_at' => date("Y-m-d H:i:s")
-            ], 
+            ],
+            //category 4
+            [
+                'category_id' => 4,
+                'user_id' => 1,
+                'image' => "images//sea.jpg",
+                'created_at' => date("Y-m-d H:i:s")
+            ],
+            //category 5
         ]);
     }
 }
