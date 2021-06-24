@@ -2640,12 +2640,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ['post', 'authenticated'],
   created: function created() {
     //covert markdown to html
     if (this.post.content) this.post.content = marked__WEBPACK_IMPORTED_MODULE_0___default()(this.post.content);
+  },
+  mounted: function mounted() {
+    function showImages(el) {
+      var windowHeight = jQuery(window).height();
+      $(el).each(function () {
+        var thisPos = $(this).offset().top;
+        var topOfWindow = $(window).scrollTop();
+
+        if (topOfWindow + windowHeight > thisPos) {
+          $(this).addClass("fadeIn");
+        } else {
+          $(this).removeClass("fadeIn");
+        }
+      });
+    }
+
+    $(window).scroll(function () {
+      showImages('.image');
+    });
   }
 });
 
@@ -7515,7 +7536,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".fadeIn {\n  -webkit-animation: animat_show 2s;\n  animation: animat_show 2s;\n  visibility: visible !important;\n}\n@-webkit-keyframes animat_show {\n0% {\n    opacity: 0\n}\n100% {\n    opacity: 1\n}\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".image {\n  visibility: hidden;\n}\n.fadeIn {\n  -webkit-animation: animat_show 1.5s;\n  animation: animat_show 1.5s;\n  visibility: visible !important;\n}\n@-webkit-keyframes animat_show {\n0% {\n    opacity: 0\n}\n100% {\n    opacity: 1\n}\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -43406,7 +43427,7 @@ var render = function() {
     _vm.post.image
       ? _c("div", [
           _c("img", {
-            staticClass: "fadeIn object-contain w-auto h-auto mb-4",
+            staticClass: "image fadeIn object-contain w-auto h-auto mb-4",
             attrs: { src: _vm.post.image, title: _vm.post.title }
           })
         ])

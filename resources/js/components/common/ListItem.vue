@@ -1,7 +1,7 @@
 <template>
     <div class="w-full mb-5"> <!--flex-->
         <div v-if="post.image">
-            <img :src="post.image" :title="post.title" class="fadeIn object-contain w-auto h-auto mb-4" />
+            <img :src="post.image" :title="post.title" class="image fadeIn object-contain w-auto h-auto mb-4" />
         </div>
         <div class="bg-white flex flex-col justify-between leading-normal">
             <div>
@@ -29,6 +29,8 @@
     </div>
 </template>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 <script>
 import marked from "marked";
 export default {
@@ -37,14 +39,37 @@ export default {
         //covert markdown to html
         if(this.post.content)
             this.post.content = marked(this.post.content);
+    },
+    mounted(){
+        function showImages(el) {
+        var windowHeight = jQuery(window).height();
+        $(el).each(function() {
+            var thisPos = $(this).offset().top;
+            var topOfWindow = $(window).scrollTop();
+
+            if (topOfWindow + windowHeight > thisPos) {
+                $(this).addClass("fadeIn");
+            }else{
+                $(this).removeClass("fadeIn");
+            }
+        });
+        }
+
+        $(window).scroll(function() {
+            showImages('.image');
+        });
     }
 }
 </script>
 
 <style>
+.image {
+  visibility: hidden;
+}
+
 .fadeIn {
-  -webkit-animation: animat_show 2s;
-  animation: animat_show 2s;
+  -webkit-animation: animat_show 1.5s;
+  animation: animat_show 1.5s;
   visibility: visible !important;
 }
 
