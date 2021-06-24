@@ -42570,7 +42570,7 @@ var staticRenderFns = [
         [
           _c("a", [
             _vm._v(
-              "\n            Larave + Vue + Tailwind 配青葉市子的歌，\n        "
+              "\n            Laravel + Vue + Tailwind 配青葉市子的歌，\n        "
             )
           ]),
           _vm._v(" "),
@@ -42934,7 +42934,7 @@ var staticRenderFns = [
       _c(
         "div",
         { staticClass: "flex flex-col mt-8 font-light text-gray-300 text-xs" },
-        [_c("a", [_vm._v("這是一個Demo。")])]
+        [_c("a", [_vm._v("這是一個實驗的 / Demo。")])]
       )
     ])
   }

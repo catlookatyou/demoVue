@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         loadUserAuthenticated(){
-            axios.get('/user', {withCredentials: true}).then(resp => {  // /api/user
+            axios.get('api/user', {withCredentials: true}).then(resp => {  // /api/user
                 console.log(resp);
                 localStorage.setItem('authenticated', true);
                 //console.log('layout_auth: ' + localStorage.getItem('authenticated'));
