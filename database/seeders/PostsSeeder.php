@@ -25,6 +25,12 @@ class PostsSeeder extends Seeder
             [
                 'category_id' => 2,
                 'user_id' => 1,
+                'image' => "images//fish.jpg",
+                'created_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'category_id' => 2,
+                'user_id' => 1,
                 'image' => "images//2-1.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
@@ -37,25 +43,7 @@ class PostsSeeder extends Seeder
             [
                 'category_id' => 2,
                 'user_id' => 1,
-                'image' => "images//fish.jpg",
-                'created_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'category_id' => 2,
-                'user_id' => 1,
                 'image' => "images//2-3.jpg",
-                'created_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'category_id' => 2,
-                'user_id' => 1,
-                'image' => "images//2-4.jpg",
-                'created_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'category_id' => 2,
-                'user_id' => 1,
-                'image' => "images//2-5.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
             //category 3
