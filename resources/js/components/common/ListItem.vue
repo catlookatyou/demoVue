@@ -1,7 +1,7 @@
 <template>
     <div class="w-full mb-5"> <!--flex-->
         <div v-if="post.image">
-            <img :src="post.image" :title="post.title" class="object-contain w-auto h-auto mb-4" />
+            <img :src="post.image" :title="post.title" class="fadeIn object-contain w-auto h-auto mb-4" />
         </div>
         <div class="bg-white flex flex-col justify-between leading-normal">
             <div>
@@ -40,3 +40,20 @@ export default {
     }
 }
 </script>
+
+<style>
+.fadeIn {
+  -webkit-animation: animat_show 2s;
+  animation: animat_show 2s;
+  visibility: visible !important;
+}
+
+@-webkit-keyframes animat_show {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+</style>
