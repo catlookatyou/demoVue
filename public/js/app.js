@@ -2748,7 +2748,7 @@ __webpack_require__.r(__webpack_exports__);
     loadUserAuthenticated: function loadUserAuthenticated() {
       var _this = this;
 
-      axios.get('/user', {
+      axios.get('/api/user', {
         withCredentials: true
       }).then(function (resp) {
         // /api/user
