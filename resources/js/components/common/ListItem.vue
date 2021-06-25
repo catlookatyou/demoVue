@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full mb-5"> <!--flex-->
+    <div class="w-full mb-5 md:w-3/4"> <!--flex-->
         <div v-if="post.image">
             <img :src="post.image" :title="post.title" class="image fadeIn object-contain w-auto h-auto mb-4" />
         </div>
