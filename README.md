@@ -1,7 +1,7 @@
 ## catlookatdemo
 
 ### 概述
-Laravel 8 + Vue 2.6 + Tailwind 2.1，開發一個類似作品集的小demo。
+Laravel 8 + Vue 2.6 + Tailwind CSS 2.1，開發一個類似作品集的小demo。
 
 ### 功能介紹
 1.  登入管理者帳號後，可新增、編輯、修改、刪除文章。
