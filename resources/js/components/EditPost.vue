@@ -112,8 +112,8 @@ export default {
                 this.category_id = this.post.category.id;
                 this.content = this.post.content;
                 this.loaded = true;
-            }).then((err) => {
-                //console.log('post: ' + err);
+            }).catch((err) => {
+                console.log('post: ' + err);
             })
         },
         loadPostsCategories(){
