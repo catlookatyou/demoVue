@@ -53,12 +53,6 @@ class PostsSeeder extends Seeder
                 'image' => "images//2-3.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
-            [
-                'category_id' => 3,
-                'user_id' => 1,
-                'image' => "images//sea.jpg",
-                'created_at' => date("Y-m-d H:i:s")
-            ],
         ]);
     }
 }
