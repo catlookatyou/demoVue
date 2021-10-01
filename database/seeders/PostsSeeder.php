@@ -15,12 +15,6 @@ class PostsSeeder extends Seeder
     {
         DB::table('posts')->insert([
             //category 1
-            [
-                'category_id' => 1,
-                'user_id' => 1,
-                'image' => "images//sea.jpg",
-                'created_at' => date("Y-m-d H:i:s")
-            ],
             //category 2
             [
                 'category_id' => 2,
@@ -57,6 +51,12 @@ class PostsSeeder extends Seeder
                 'category_id' => 3,
                 'user_id' => 1,
                 'image' => "images//2-3.jpg",
+                'created_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'category_id' => 3,
+                'user_id' => 1,
+                'image' => "images//sea.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
         ]);
