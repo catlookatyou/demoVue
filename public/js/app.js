@@ -2144,7 +2144,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.category_id = _this.post.category.id;
         _this.content = _this.post.content;
         _this.loaded = true;
-      }).then(function (err) {//console.log('post: ' + err);
+      })["catch"](function (err) {
+        console.log('post: ' + err);
       });
     },
     loadPostsCategories: function loadPostsCategories() {
@@ -2214,6 +2215,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -42569,9 +42571,7 @@ var staticRenderFns = [
         { staticClass: "flex flex-col mt-8 font-light text-gray-300 text-xs" },
         [
           _c("a", [
-            _vm._v(
-              "\n            Laravel + Vue + Tailwind 配青葉市子的歌，\n        "
-            )
+            _vm._v("\n            Laravel + Vue + Tailwind,\n        ")
           ]),
           _vm._v(" "),
           _c("a", [_vm._v("\n            by catlookatyou, 2021\n        ")])
@@ -42928,13 +42928,17 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex flex-col" }, [
       _c("div", { staticClass: "flex font-semibold text-xs" }, [
-        _c("h1", [_vm._v("卡路阿泥 Demo")])
+        _c("h1", [_vm._v("魚塭")])
       ]),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "flex flex-col mt-8 font-light text-gray-300 text-xs" },
-        [_c("a", [_vm._v("這是一個實驗的 / Demo。")])]
+        [
+          _c("a", [_vm._v("/")]),
+          _vm._v(" "),
+          _c("a", [_vm._v("這是一個小demo")])
+        ]
       )
     ])
   }
@@ -43742,40 +43746,6 @@ var render = function() {
                   }
                 },
                 [_vm._v("Demo 3")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
-                  attrs: {
-                    to: { name: "category", params: { name: "Demo4" } }
-                  },
-                  nativeOn: {
-                    click: function($event) {
-                      return _vm.navToggle.apply(null, arguments)
-                    }
-                  }
-                },
-                [_vm._v("Demo 4")]
-              ),
-              _vm._v(" "),
-              _c(
-                "router-link",
-                {
-                  staticClass:
-                    "underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300",
-                  attrs: {
-                    to: { name: "category", params: { name: "Demo5" } }
-                  },
-                  nativeOn: {
-                    click: function($event) {
-                      return _vm.navToggle.apply(null, arguments)
-                    }
-                  }
-                },
-                [_vm._v("Demo 5")]
               ),
               _vm._v(" "),
               _c(

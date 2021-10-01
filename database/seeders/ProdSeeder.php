@@ -31,13 +31,7 @@ class ProdSeeder extends Seeder
             ],
             [
                 'name' => 'Demo3'
-            ],
-            [
-                'name' => 'Demo4'
-            ],
-            [
-                'name' => 'Demo5'
-            ],
+            ]
         ]);
 
         //posts

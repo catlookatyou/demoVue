@@ -5,10 +5,12 @@
 <template>
     <div class="flex flex-col">
         <div class="flex font-semibold text-xs">
-            <h1>卡路阿泥 Demo</h1>
+            <h1>魚塭</h1>
         </div>
         <div class="flex flex-col mt-8 font-light text-gray-300 text-xs">
-            <a>這是一個實驗的 / Demo。</a>
+            <a>.:。<a>
+            <a>/</a>
+            <a>這是一個小demo</a>
         </div>
     </div>
 </template>

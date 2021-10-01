@@ -9,7 +9,7 @@
         </div>
         <div class="flex flex-col mt-8 font-light text-gray-300 text-xs">
             <a>
-                Laravel + Vue + Tailwind 配青葉市子的歌，
+                Laravel + Vue + Tailwind,
             </a>
             <a>
                 by catlookatyou, 2021

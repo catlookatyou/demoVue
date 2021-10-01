@@ -16,8 +16,8 @@
                     <router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" :to="{ name: 'category', params: { name: 'Demo1' }}">Demo 1</router-link>
                     <router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" :to="{ name: 'category', params: { name: 'Demo2' }}">Demo 2</router-link>
                     <router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" :to="{ name: 'category', params: { name: 'Demo3' }}">Demo 3</router-link>
-                    <router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" :to="{ name: 'category', params: { name: 'Demo4' }}">Demo 4</router-link>
-                    <router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" :to="{ name: 'category', params: { name: 'Demo5' }}">Demo 5</router-link>
+                    <!--<router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" :to="{ name: 'category', params: { name: 'Demo4' }}">Demo 4</router-link>
+                    <router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" :to="{ name: 'category', params: { name: 'Demo5' }}">Demo 5</router-link>-->
                     <router-link @click.native="navToggle" class="underline block px-4 pb-1.5 bg-transparent focus:text-gray-300 md:hover:text-gray-300" to="/about">About</router-link>
 
                     <a v-if="authenticated" class="block px-4 pb-1.5 mt-8">*adminMode</a>
