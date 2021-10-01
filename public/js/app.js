@@ -2135,9 +2135,12 @@ __webpack_require__.r(__webpack_exports__);
       axios.get('/api/posts/' + id).then(function (resp) {
         _this.post = resp.data.data; //image
 
-        var url = window.location.origin;
-        _this.image = url + '/' + _this.post.image;
-        console.log('image:' + _this.image);
+        if (_this.post.image) {
+          var url = window.location.origin;
+          _this.image = url + '/' + _this.post.image;
+          console.log('image:' + _this.image);
+        }
+
         _this.title = _this.post.title; //const category = this.post.category;
         //console.log('c:' + category);
 
@@ -42929,7 +42932,7 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex flex-col" }, [
       _c("div", { staticClass: "flex font-semibold text-xs" }, [
-        _c("h1", [_vm._v("魚塭")])
+        _c("h1", [_vm._v("魚塭 demo")])
       ]),
       _vm._v(" "),
       _c(
