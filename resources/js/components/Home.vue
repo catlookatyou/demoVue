@@ -5,7 +5,7 @@
 <template>
     <div class="flex flex-col">
         <div class="flex font-semibold text-xs">
-            <h1>魚塭</h1>
+            <h1>魚塭 demo</h1>
         </div>
         <div class="flex flex-col mt-8 font-light text-gray-300 text-xs">
             <a>.:。</a>

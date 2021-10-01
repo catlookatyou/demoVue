@@ -102,9 +102,11 @@ export default {
             axios.get('/api/posts/' + id).then((resp) => {
                 this.post = resp.data.data;
                 //image
-                var url = window.location.origin;
-                this.image = url + '/' + this.post.image;
-                console.log('image:' + this.image);
+                if(this.post.image){
+                    var url = window.location.origin;
+                    this.image = url + '/' + this.post.image;
+                    console.log('image:' + this.image);
+                }
 
                 this.title = this.post.title;
                 //const category = this.post.category;
