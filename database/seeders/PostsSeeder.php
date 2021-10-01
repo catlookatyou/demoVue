@@ -20,14 +20,12 @@ class PostsSeeder extends Seeder
                 'category_id' => 2,
                 'user_id' => 1,
                 'image' => "images//day.jpg",
-                'content' => '13:22',
                 'created_at' => date("Y-m-d H:i:s")
             ],
             [
                 'category_id' => 2,
                 'user_id' => 1,
                 'image' => "images//night.jpg",
-                'content' => '20:07',
                 'created_at' => date("Y-m-d H:i:s")
             ],
             //category 3
