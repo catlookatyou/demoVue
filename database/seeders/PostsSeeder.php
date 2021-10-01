@@ -19,38 +19,40 @@ class PostsSeeder extends Seeder
             [
                 'category_id' => 2,
                 'user_id' => 1,
-                'image' => "images//fish.jpg",
+                'image' => "images//day.jpg",
+                'content' => '13:22',
                 'created_at' => date("Y-m-d H:i:s")
             ],
             [
                 'category_id' => 2,
                 'user_id' => 1,
-                'image' => "images//2-1.jpg",
-                'created_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'category_id' => 2,
-                'user_id' => 1,
-                'image' => "images//2-2.jpg",
-                'created_at' => date("Y-m-d H:i:s")
-            ],
-            [
-                'category_id' => 2,
-                'user_id' => 1,
-                'image' => "images//2-3.jpg",
+                'image' => "images//night.jpg",
+                'content' => '20:07',
                 'created_at' => date("Y-m-d H:i:s")
             ],
             //category 3
             [
                 'category_id' => 3,
                 'user_id' => 1,
-                'image' => "images//day.jpg",
+                'image' => "images//fish.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
             [
                 'category_id' => 3,
                 'user_id' => 1,
-                'image' => "images//night.jpg",
+                'image' => "images//2-1.jpg",
+                'created_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'category_id' => 3,
+                'user_id' => 1,
+                'image' => "images//2-2.jpg",
+                'created_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'category_id' => 3,
+                'user_id' => 1,
+                'image' => "images//2-3.jpg",
                 'created_at' => date("Y-m-d H:i:s")
             ],
         ]);

@@ -8,7 +8,7 @@
             <h1>魚塭</h1>
         </div>
         <div class="flex flex-col mt-8 font-light text-gray-300 text-xs">
-            <a>.:。<a>
+            <a>.:。</a>
             <a>/</a>
             <a>這是一個小demo</a>
         </div>

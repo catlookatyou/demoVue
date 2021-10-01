@@ -2231,6 +2231,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
 /***/ }),
@@ -42935,6 +42936,8 @@ var staticRenderFns = [
         "div",
         { staticClass: "flex flex-col mt-8 font-light text-gray-300 text-xs" },
         [
+          _c("a", [_vm._v(".:。")]),
+          _vm._v(" "),
           _c("a", [_vm._v("/")]),
           _vm._v(" "),
           _c("a", [_vm._v("這是一個小demo")])
