@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  laravel-CI/CD:
+  laravel-cicd:
 
     runs-on: ubuntu-18.04
 
