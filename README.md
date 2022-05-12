@@ -1,5 +1,8 @@
 ## catlookatdemo
 
+### 網址
+https://catlookatdemo.herokuapp.com
+
 ### 概述
 Laravel 8 + Vue 2.6 + Tailwind CSS 2.1，開發一個類似作品集的小demo。
 
